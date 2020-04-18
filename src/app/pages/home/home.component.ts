@@ -17,7 +17,6 @@ export class HomeComponent implements OnInit {
 
     ngOnInit(): void {
         this.api.getAll("carousel").then((listCarousel: Array<any>) => {
-            console.log(listCarousel)
             listCarousel.forEach(element => {
                 const ref = this.fireStorage.ref(element.caminho);
                 ref.getDownloadURL().subscribe((data) => {
