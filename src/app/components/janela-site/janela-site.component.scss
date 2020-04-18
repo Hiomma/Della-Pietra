@@ -1,0 +1,48 @@
+.headerToolbar {
+    display: flex;
+    background: white;
+    height: 120px;
+    border-bottom: 1px solid #dedede;
+}
+
+.divTitulo {
+    width: 1170px;
+    margin: 0 auto;
+
+    .divLogo {
+        background: url("../../../assets/images/logo.png");
+        width: 130px;
+        height: 120px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .header-menu {
+        line-height: 32px;
+        width: 100%;
+        text-align: right;
+        padding-top: 38px;
+        height: calc(100% - 1px);
+    }
+}
+
+.divFooter {
+    text-align: center;
+
+    [nz-icon] {
+        font-size: 35px;
+    }
+}
+
+.inner-layout {
+    background: #fff;
+}
+
+.inner-content {
+    min-height: 280px;
+}
+
+.ant-menu-horizontal {
+    border: none;
+}

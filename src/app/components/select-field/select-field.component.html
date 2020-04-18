@@ -1,0 +1,12 @@
+<nz-form-item>
+    <nz-form-label [attr.for]="field" [nzRequired]="required">{{label}}
+    </nz-form-label>
+    <nz-form-control [nzErrorTip]="error">
+        <nz-select #select [formControl]="control" nzAllowClear nzPlaceHolder="Selecione..." [id]="field"
+            [nzMaxTagCount]="3" [nzMaxTagPlaceholder]="tagPlaceHolder" [nzMode]="isMultiple ? 'multiple' : 'default'">
+            <nz-option *ngFor="let aux of listOptions" [nzValue]="returnObject ? aux : aux.uid" [nzLabel]="aux.nome ? aux.nome : aux.descricao">
+            </nz-option>
+        </nz-select>
+        <ng-template #tagPlaceHolder let-selectedList> e mais {{ selectedList.length }} selecionado(s) </ng-template>
+    </nz-form-control>
+</nz-form-item>

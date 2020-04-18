@@ -1,0 +1,17 @@
+<div class="divTitle">{{title}}</div>
+
+<nz-upload nzListType="picture-card" [(nzFileList)]="fileList" [nzCustomRequest]="dummyRequest" class="uploadImagem"
+    [nzShowButton]="fileList.length < 1" [nzShowUploadList]="showUploadList" (nzChange)="onChange($event)"
+    [nzPreview]="handlePreview">
+    <i nz-icon nzType="plus" class="iconUpload"></i>
+    <div class="ant-upload-text" style="width: 182px; height: 182px;">
+        <span class="spanUpload">Adicione uma Imagem</span>
+    </div>
+</nz-upload>
+
+<nz-modal [nzVisible]="previewVisible" [nzContent]="modalContent" [nzFooter]="null"
+    (nzOnCancel)="previewVisible = false">
+    <ng-template #modalContent>
+        <img [src]="previewImage" [ngStyle]="{ width: '100%' }" />
+    </ng-template>
+</nz-modal>

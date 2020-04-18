@@ -1,0 +1,22 @@
+.janelaCrud {
+    position: absolute;
+    top: 0px;
+    width: calc(100% - 48px);
+    height: 100%;
+    background: white;
+    z-index: 999;
+
+    .toolbarTitulo {
+        background: var(--backgroundAzulEscuro);
+        height: 56px;
+        padding-left: 16px;
+        padding-top: 08px;
+        font-weight: bold;
+        font-size: 26px;
+
+    }
+
+    .divBody {
+        padding-top: 16px;
+    }
+}

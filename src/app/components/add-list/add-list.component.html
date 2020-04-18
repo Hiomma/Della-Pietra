@@ -1,0 +1,22 @@
+<div class="divList">
+    <div nz-row nzGutter="8">
+        <div nz-col nzSpan="22">
+            <autocompleteField [control]="auxControl" [table]="table" filterName="nome" [label]="name">
+            </autocompleteField>
+        </div>
+        <div nz-col nzSpan="2">
+            <button nz-button id="adicionar" type="button" class="buttonAddList" accesskey="A"
+                [disabled]="auxControl.invalid" (click)="add()">Adicionar</button>
+        </div>
+    </div>
+
+    <nz-list [nzDataSource]="control.value" [nzRenderItem]="item" [nzItemLayout]="'horizontal'" [nzLoading]="loading"
+        class="listDados">
+        <ng-template #item let-item>
+            <nz-list-item>
+                <nz-list-item-meta [nzTitle]="item.nome" [nzDescription]="item.descricao">
+                </nz-list-item-meta>
+            </nz-list-item>
+        </ng-template>
+    </nz-list>
+</div>

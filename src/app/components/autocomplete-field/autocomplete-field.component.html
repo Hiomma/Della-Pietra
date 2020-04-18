@@ -1,0 +1,11 @@
+<nz-form-item>
+    <nz-form-label style="margin-bottom: 4px;" [attr.for]="field" [nzRequired]="required">{{label}}
+    </nz-form-label>
+    <input nz-input #input [formControl]="control" [nzAutocomplete]="auto" [id]="field" [name]="field" />
+    <nz-autocomplete nzBackfill #auto>
+        <nz-auto-option *ngFor="let option of listOptions" [nzValue]="returnObject ? option : option.uid"
+            [nzLabel]="option[exhibitionName]">
+            {{ option[exhibitionName] }}
+        </nz-auto-option>
+    </nz-autocomplete>
+</nz-form-item>

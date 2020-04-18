@@ -1,0 +1,10 @@
+<nz-card nzType="inner" nz-row nzGutter="8">
+    <div nz-col nzSpan="2" nzOffset="20">
+        <button nz-button type="button" id="voltar" class="buttonFooter cinza" accesskey="V"
+            (click)="voltar()">Voltar</button>
+    </div>
+    <div nz-col nzSpan="2">
+        <button nz-button id="confirmar" type="button" class="buttonFooter azul" accesskey="C"
+            [disabled]="formGroup.invalid" (click)="confirmar()">Confirmar</button>
+    </div>
+</nz-card>

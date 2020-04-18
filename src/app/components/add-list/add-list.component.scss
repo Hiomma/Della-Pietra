@@ -1,0 +1,15 @@
+.buttonAddList {
+    margin-top: 44px;
+    width: 100%;
+}
+
+.divList {
+    min-height: 300px;
+
+    .listDados {
+        border: 1px solid #dedede;
+        padding: 16px;
+        height: 198px;
+        overflow-y: scroll;
+    }
+}

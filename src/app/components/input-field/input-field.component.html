@@ -1,0 +1,24 @@
+<nz-form-item>
+    <nz-form-label [attr.for]="field" [nzRequired]="required" *ngIf="label">{{label}}
+    </nz-form-label>
+    <ng-container *ngIf="!['P', 'N', 'I'].includes(type); else inputNumero">
+        <nz-form-control [nzErrorTip]="error">
+            <nz-input-group [nzSuffix]="isSearch ? suffixIconSearch : null">
+                <input nz-input #inputField [placeholder]="placeholder" [formControl]="control"
+                    [id]="field ? field : label" [name]="field" (focusout)="onTouchedCb()" [textMask]="mask"
+                    [type]="auxType" />
+            </nz-input-group>
+
+            <ng-template #suffixIconSearch>
+                <i nz-icon nzType="search"></i>
+            </ng-template>
+        </nz-form-control>
+    </ng-container>
+
+    <ng-template #inputNumero>
+        <nz-form-control [nzErrorTip]="error">
+            <input nz-input #inputField currencyMask [options]="mask" [id]="field" (focusout)="onTouchedCb()"
+                [formControl]="control" />
+        </nz-form-control>
+    </ng-template>
+</nz-form-item>

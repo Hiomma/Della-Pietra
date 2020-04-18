@@ -1,0 +1,30 @@
+.divHeader {
+    padding: 20px 0;
+    font-size: 24px;
+    border-bottom: 1px solid #dedede;
+
+    .divTitulo {
+        width: 1170px;
+        margin: 0 auto !important;
+        position: relative;
+
+        .divBreadcrumb {
+            position: absolute;
+            right: 0;
+            top: 10px;
+        }
+    }
+
+}
+
+.divConteudo {
+    width: 1170px;
+    margin: 0 auto !important;
+    margin-top: 40px !important;
+
+    .imgMaterial {
+        width: 270px;
+        height: 225px;
+        margin-top: 8px;
+    }
+}

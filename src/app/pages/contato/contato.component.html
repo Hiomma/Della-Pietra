@@ -1,0 +1,41 @@
+<janela-site>
+    <div class="divHeader">
+        <div class="divTitulo">
+            <div>
+                Empresa
+            </div>
+            <div class="divBreadcrumb">
+                <nz-breadcrumb>
+                    <nz-breadcrumb-item>
+                        <a routerLink="">Home</a>
+                    </nz-breadcrumb-item>
+                    <nz-breadcrumb-item>
+                        Empresa
+                    </nz-breadcrumb-item>
+                </nz-breadcrumb>
+            </div>
+        </div>
+    </div>
+    <div nz-row class="divConteudo" [nzGutter]="16">
+        <div nz-col nzSpan="12" class="divTexto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget leo mauris. Mauris sollicitudin
+            feugiat
+            purus, dictum eleifend nunc sagittis nec. Quisque vestibulum ultricies augue, eu venenatis enim rutrum sit
+            amet.
+            Curabitur velit ligula, porta non bibendum sit amet, molestie ut augue. Interdum et malesuada fames ac ante
+            ipsum primis in faucibus. Maecenas elit purus, condimentum et lectus at, ultricies ultrices est. Vivamus
+            hendrerit pretium faucibus. Aliquam erat volutpat. Morbi gravida neque lacinia eros ultricies lacinia. Etiam
+            sit
+            amet luctus nunc.
+        </div>
+
+        <div nz-col nzSpan="12">
+            <nz-carousel nzAutoPlay class="carouselEmpresa">
+                <div nz-carousel-content *ngFor="let image of listCarousel">
+                    <img [src]="image">
+                </div>
+            </nz-carousel>
+        </div>
+    </div>
+
+</janela-site>

@@ -1,0 +1,50 @@
+.buttonFooter {
+    width: 100%;
+    font-weight: bold;
+    transition: .5s;
+
+    &.vermelho {
+        color: var(--vermelha);
+        border-color: var(--vermelha);
+    }
+
+    &.cinza {
+        color: var(--cinza);
+        border-color: var(--cinza);
+    }
+
+    &.azul {
+        color: var(--azul);
+        border-color: var(--azul);
+    }
+}
+
+.buttonFooter:disabled {
+    color: #dedede;
+    border-color: #dedede;
+}
+
+.buttonFooter:focus,
+.buttonFooter:hover:enabled {
+    transition: .5s;
+
+    &.vermelho {
+        color: white;
+        background: var(--vermelha);
+    }
+
+    &.cinza {
+        color: white;
+        background: var(--cinza);
+    }
+
+    &.azul {
+        color: white;
+        background: var(--azul);
+    }
+}
+
+.cardFooter {
+    margin-top: 8px;
+    border-left: 8px solid var(--bordaAzul);
+}

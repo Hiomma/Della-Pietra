@@ -1,0 +1,31 @@
+<nz-layout style="min-height: 100vh;">
+    <nz-header class="headerToolbar">
+        <div class="divTitulo" nz-row>
+            <div nz-col nzSpan="12" class="divLogo"></div>
+            <ul nz-col nzSpan="12" nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+                <li nz-menu-item [nzSelected]="this.isSelected(menu.routerLink[0])" [routerLink]="menu.routerLink"
+                    *ngFor="let menu of listMenu">
+                    {{menu.name}}</li>
+            </ul>
+        </div>
+    </nz-header>
+    <nz-layout class="inner-layout">
+        <nz-content class="inner-content">
+            <ng-content></ng-content>
+        </nz-content>
+    </nz-layout>
+    <nz-footer>
+        <div>
+            <div nz-col nzSpan="8" class="divFooter">
+                <i nz-icon nzType="facebook" nzTheme="outline" style="margin-right: 20px;"></i>
+                <i nz-icon nzType="instagram" nzTheme="outline"></i>
+            </div>
+            <div nz-col nzSpan="8" class="divFooter">
+                Gabriel Sereno ©{{year}}
+            </div>
+            <div nz-col nzSpan="8" class="divFooter">
+                Gabriel Sereno ©{{year}}
+            </div>
+        </div>
+    </nz-footer>
+</nz-layout>

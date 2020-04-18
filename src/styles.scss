@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+
+:root {
+    --primary: linear-gradient(to right, #29335f, #2f325d, #34325c, #39315a, #3d3158, #49315b, #55305c, #612e5c, #792959, #902250, #a22040, #ae272c);
+    --vermelha: #AE272C;
+    --cinza: #758391;
+    --azul: #3B86FF;
+}
+
+* {
+    font-family: Roboto, Arial, sans-serif;
+    outline: none;
+}
+
+@-moz-document url-prefix() {
+    * {
+        font-family: Tahoma, sans-serif;
+    }
+}

@@ -1,0 +1,37 @@
+<inputField [control]="searchControl" placeholder="Digite para pesquisar..." [isSearch]="true"></inputField>
+
+<nz-table #columnTable [nzData]="listData" [nzScroll]="{ x: '1100px' }" [nzLoading]="loadingTable">
+    <thead>
+        <tr>
+            <th *ngFor="let aux of listColumns" [nzWidth]="aux.width" nzLeft="0px">{{aux.name}}</th>
+            <th nzWidth="5%" nzRight="0px">Ativo?</th>
+            <th nzWidth="5%" nzRight="0px">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let data of columnTable.data; let i = index">
+            <td nzLeft="0px" *ngFor="let aux of listColumns; let j = index">
+                {{ listExhibitionTable[i] ? listExhibitionTable[i][j] : null }}
+            </td>
+            <td nzRight="0px">
+                <nz-switch [(ngModel)]="data.status" (ngModelChange)="setDataBloqueio(data)">
+                </nz-switch>
+            </td>
+            <td nzRight="0px">
+                <button nz-button nzType="primary" nz-popover [(nzVisible)]="data.visible" nzPopoverTitle="Opções"
+                    nzPopoverTrigger="click" [nzPopoverContent]="contentTemplate">
+                    <i nz-icon nzType="more"></i>
+                </button>
+                <ng-template #contentTemplate>
+                    <a (click)="executeAction(action, data)" class="aAction"
+                        *ngFor="let action of actions">{{action.name}}</a>
+                </ng-template>
+            </td>
+        </tr>
+    </tbody>
+</nz-table>
+
+<button class="buttonFab" nz-button nzType="primary" nzSize="large" nzShape="circle"
+    (click)="executeAction(menu.actions[0])">
+    <i nz-icon nzType="plus"></i>
+</button>
