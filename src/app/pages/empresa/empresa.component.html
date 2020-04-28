@@ -17,16 +17,7 @@
         </div>
     </div>
     <div nz-row class="divConteudo" [nzGutter]="16">
-        <div nz-col nzSpan="12" class="divTexto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget leo mauris. Mauris sollicitudin
-            feugiat
-            purus, dictum eleifend nunc sagittis nec. Quisque vestibulum ultricies augue, eu venenatis enim rutrum sit
-            amet.
-            Curabitur velit ligula, porta non bibendum sit amet, molestie ut augue. Interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Maecenas elit purus, condimentum et lectus at, ultricies ultrices est. Vivamus
-            hendrerit pretium faucibus. Aliquam erat volutpat. Morbi gravida neque lacinia eros ultricies lacinia. Etiam
-            sit
-            amet luctus nunc.
+        <div nz-col nzSpan="12" class="divTexto" [innerHTML]="textoEmpresa?.texto">
         </div>
 
         <div nz-col nzSpan="12">

@@ -1,40 +1,51 @@
 <janela-site>
-    <div class="divHeader">
-        <div class="divTitulo">
-            <div>
-                Empresa
-            </div>
-            <div class="divBreadcrumb">
-                <nz-breadcrumb>
-                    <nz-breadcrumb-item>
-                        <a routerLink="">Home</a>
-                    </nz-breadcrumb-item>
-                    <nz-breadcrumb-item>
-                        Empresa
-                    </nz-breadcrumb-item>
-                </nz-breadcrumb>
-            </div>
-        </div>
+    <div class="divMap">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.8224910845005!2d-41.119359901007854!3d-20.85151921632506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb942caa4c29f19%3A0x761748d34643ba95!2sRecanto%2C%20Cachoeiro%20de%20Itapemirim%20-%20ES%2C%2029303-040!5e0!3m2!1spt-BR!2sbr!4v1588040303428!5m2!1spt-BR!2sbr"
+            width="1920" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            tabindex="0"></iframe>
     </div>
+
     <div nz-row class="divConteudo" [nzGutter]="16">
-        <div nz-col nzSpan="12" class="divTexto">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget leo mauris. Mauris sollicitudin
-            feugiat
-            purus, dictum eleifend nunc sagittis nec. Quisque vestibulum ultricies augue, eu venenatis enim rutrum sit
-            amet.
-            Curabitur velit ligula, porta non bibendum sit amet, molestie ut augue. Interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Maecenas elit purus, condimentum et lectus at, ultricies ultrices est. Vivamus
-            hendrerit pretium faucibus. Aliquam erat volutpat. Morbi gravida neque lacinia eros ultricies lacinia. Etiam
-            sit
-            amet luctus nunc.
+        <div nz-col nzSpan="12" class="divContato">
+            <h1>Contato</h1>
+
+            <form nz-form>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col nzSpan="12">
+                        <inputField [control]="resourceForm.get('descricao')" label="Descrição"></inputField>
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <inputField [control]="resourceForm.get('email')" label="E-mail"></inputField>
+                    </div>
+                </div>
+                <div nz-row [nzGutter]="16">
+                    <div nz-col nzSpan="12">
+                        <inputField [control]="resourceForm.get('titulo')" label="Título"></inputField>
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <inputField [control]="resourceForm.get('telefone')" label="Telefone"></inputField>
+                    </div>
+                </div>
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <textareaField style="width: 100%" [control]="resourceForm.get('mensagem')" label="Mensagem">
+                        </textareaField>
+                    </div>
+                </div>
+                <div nz-row>
+                    <div nz-col nzSpan="24">
+                        <button nz-button nzType="primary" nzSize="large" style="width: 150px;">Enviar</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
         <div nz-col nzSpan="12">
-            <nz-carousel nzAutoPlay class="carouselEmpresa">
-                <div nz-carousel-content *ngFor="let image of listCarousel">
-                    <img [src]="image">
-                </div>
-            </nz-carousel>
+            <h1>Della Pietra</h1>
+            <p class="pEndereco">Rua Alvaro Ramos, 105 - CEP 29303-040 </p>
+            <p class="pEndereco">Recanto - Cachoeiro de Itapemirim/ES</p>
+            <p class="pEndereco">Telefone: +55 28 9951-7007 • +55 28 9883-6086</p>
         </div>
     </div>
 

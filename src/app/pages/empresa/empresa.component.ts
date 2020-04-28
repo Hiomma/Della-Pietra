@@ -10,15 +10,18 @@ import { AngularFireStorage } from '@angular/fire/storage';
 export class EmpresaComponent implements OnInit {
 
     listCarousel: Array<any> = [];
+    textoEmpresa: { texto: string, texto_ingles: string };
 
     constructor(private api: ApiService,
         private fireStorage: AngularFireStorage) { }
 
     ngOnInit(): void {
-        this.api.getAll("carousel").then((listCarousel: Array<any>) => {
-            console.log(listCarousel)
-            listCarousel.forEach(element => {
-                const ref = this.fireStorage.ref(element.caminho);
+        this.api.getAll("empresa").then((empresa: { texto: string, texto_ingles: string, carousel: [] }) => {
+            empresa = empresa[0];
+            this.textoEmpresa = { texto: empresa.texto, texto_ingles: empresa.texto_ingles }
+            
+            empresa.carousel.forEach(element => {
+                const ref = this.fireStorage.ref(element);
                 ref.getDownloadURL().subscribe((data) => {
                     this.listCarousel.push(data);
                 })

@@ -3,7 +3,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { FormGroup } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
 import { EnumOption } from 'src/app/misc/enums/comum.enum';
-import { InheritanceService } from 'src/app/misc/inheritance/inheritance.service';
 import { ComumService } from 'src/app/services/comum.service';
 
 @Component({

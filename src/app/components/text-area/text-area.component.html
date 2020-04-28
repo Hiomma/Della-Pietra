@@ -1,0 +1,6 @@
+<nz-form-item>
+    <nz-form-label [attr.for]="field" [nzRequired]="required" *ngIf="label">{{label}}</nz-form-label>
+    <nz-form-control>
+        <textarea style="width: 100%;" nz-input rows="10" [formControl]="control"></textarea>
+    </nz-form-control>
+</nz-form-item>

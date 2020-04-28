@@ -14,12 +14,14 @@ import { InputFieldComponent } from './input-field/input-field.component';
 import { JanelaSiteComponent } from './janela-site/janela-site.component';
 import { JanelaComponent } from './janela/janela.component';
 import { SelectFieldComponent } from './select-field/select-field.component';
+import { TextAreaComponent } from './text-area/text-area.component';
 
 @NgModule({
     declarations: [
         InheritanceComponent,
         JanelaComponent,
         InputFieldComponent,
+        TextAreaComponent,
         AutocompleteFieldComponent,
         SelectFieldComponent,
         AddImageComponent,
@@ -40,6 +42,7 @@ import { SelectFieldComponent } from './select-field/select-field.component';
         InheritanceComponent,
         JanelaComponent,
         InputFieldComponent,
+        TextAreaComponent,
         AutocompleteFieldComponent,
         SelectFieldComponent,
         AddImageComponent,
@@ -53,6 +56,7 @@ import { SelectFieldComponent } from './select-field/select-field.component';
         InheritanceComponent,
         JanelaComponent,
         InputFieldComponent,
+        TextAreaComponent,
         AutocompleteFieldComponent,
         SelectFieldComponent,
         AddImageComponent,
