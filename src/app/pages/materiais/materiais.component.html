@@ -2,7 +2,7 @@
     <div class="divHeader">
         <div class="divTitulo">
             <div>
-                Materiais
+                {{isPortuguese ? 'Materiais' : 'Materials'}}
             </div>
             <div class="divBreadcrumb">
                 <nz-breadcrumb>
@@ -10,21 +10,28 @@
                         <a routerLink="">Home</a>
                     </nz-breadcrumb-item>
                     <nz-breadcrumb-item>
-                        Materiais
+                        {{isPortuguese ? 'Materiais' : 'Materials'}}
                     </nz-breadcrumb-item>
                 </nz-breadcrumb>
             </div>
         </div>
     </div>
 
-    <div class="divConteudo" >
+    <div class="divConteudo">
         <div>
             <div nz-row [nzGutter]="[16, 16]">
-                <div nz-col [nzSpan]="6" *ngFor="let material of listMateriais">
-                    <img class="imgMaterial" [src]="material.url">
+                <div nz-col [nzSpan]="6" *ngFor="let material of listMateriais" (mouseover)="material.hover = true"
+                    (mouseleave)="material.hover = false">
+                    <div>
+                        <img class="imgMaterial" [src]="material.url">
+                    </div>
+                    <div [ngClass]="material.hover ? 'divHover visivel' : 'divHover'">
+                        <span [ngClass]="material.hover ? 'spanNome visivel' : 'spanNome'">{{material.nome}}</span>
+                        <button nz-button nzType="primary" (click)="verChapa(material)"
+                            [ngClass]="material.hover ? 'buttonVerChapa visivel' : 'buttonVerChapa'">{{isPortuguese ? 'Ver Chapa' : 'See Slab'}}</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </janela-site>

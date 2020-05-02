@@ -2,7 +2,7 @@
     <div class="divHeader">
         <div class="divTitulo">
             <div>
-                Empresa
+                {{isPortuguese ? 'Empresa' : 'Company'}}
             </div>
             <div class="divBreadcrumb">
                 <nz-breadcrumb>
@@ -10,20 +10,21 @@
                         <a routerLink="">Home</a>
                     </nz-breadcrumb-item>
                     <nz-breadcrumb-item>
-                        Empresa
+                        {{isPortuguese ? 'Empresa' : 'Company'}}
                     </nz-breadcrumb-item>
                 </nz-breadcrumb>
             </div>
         </div>
     </div>
     <div nz-row class="divConteudo" [nzGutter]="16">
-        <div nz-col nzSpan="12" class="divTexto" [innerHTML]="textoEmpresa?.texto">
+        <div nz-col nzSpan="12" class="divTexto"
+            [innerHTML]="isPortuguese ? textoEmpresa?.texto :  textoEmpresa?.texto_ingles">
         </div>
 
         <div nz-col nzSpan="12">
             <nz-carousel nzAutoPlay class="carouselEmpresa">
                 <div nz-carousel-content *ngFor="let image of listCarousel">
-                    <img [src]="image">
+                    <img class="imgEmpresa" [src]="image">
                 </div>
             </nz-carousel>
         </div>

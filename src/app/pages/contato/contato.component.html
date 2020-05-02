@@ -8,12 +8,13 @@
 
     <div nz-row class="divConteudo" [nzGutter]="16">
         <div nz-col nzSpan="12" class="divContato">
-            <h1>Contato</h1>
+            <h1>{{isPortuguese ? 'Contato' : 'Contact'}}</h1>
 
             <form nz-form>
                 <div nz-row [nzGutter]="16">
                     <div nz-col nzSpan="12">
-                        <inputField [control]="resourceForm.get('descricao')" label="Descrição"></inputField>
+                        <inputField [control]="resourceForm.get('nome')" [label]="isPortuguese ? 'Nome' : 'Name'">
+                        </inputField>
                     </div>
                     <div nz-col nzSpan="12">
                         <inputField [control]="resourceForm.get('email')" label="E-mail"></inputField>
@@ -21,31 +22,37 @@
                 </div>
                 <div nz-row [nzGutter]="16">
                     <div nz-col nzSpan="12">
-                        <inputField [control]="resourceForm.get('titulo')" label="Título"></inputField>
+                        <inputField [control]="resourceForm.get('titulo')" [label]="isPortuguese ? 'Título' : 'Title'">
+                        </inputField>
                     </div>
                     <div nz-col nzSpan="12">
-                        <inputField [control]="resourceForm.get('telefone')" label="Telefone"></inputField>
+                        <inputField [control]="resourceForm.get('telefone')"
+                            [label]="isPortuguese ? 'Telefone' : 'Phone'"></inputField>
                     </div>
                 </div>
                 <div nz-row>
                     <div nz-col nzSpan="24">
-                        <textareaField style="width: 100%" [control]="resourceForm.get('mensagem')" label="Mensagem">
+                        <textareaField style="width: 100%" [control]="resourceForm.get('mensagem')"
+                            [label]="isPortuguese ? 'Mensagem' : 'Message'">
                         </textareaField>
                     </div>
                 </div>
                 <div nz-row>
                     <div nz-col nzSpan="24">
-                        <button nz-button nzType="primary" nzSize="large" style="width: 150px;">Enviar</button>
+                        <button nz-button nzType="primary" nzSize="large"
+                            style="width: 150px;">{{isPortuguese ? 'Enviar' : 'Send'}}</button>
                     </div>
                 </div>
             </form>
         </div>
 
         <div nz-col nzSpan="12">
-            <h1>Della Pietra</h1>
-            <p class="pEndereco">Rua Alvaro Ramos, 105 - CEP 29303-040 </p>
-            <p class="pEndereco">Recanto - Cachoeiro de Itapemirim/ES</p>
-            <p class="pEndereco">Telefone: +55 28 9951-7007 • +55 28 9883-6086</p>
+            <div style="padding-left: 100px;">
+                <h1>Della Pietra</h1>
+                <p class="pEndereco">Rua Alvaro Ramos, 105 - CEP 29303-040 </p>
+                <p class="pEndereco">Recanto - Cachoeiro de Itapemirim/ES</p>
+                <p class="pEndereco">Telefone: +55 28 9951-7007 • +55 28 9883-6086</p>
+            </div>
         </div>
     </div>
 

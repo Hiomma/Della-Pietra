@@ -15,6 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrudResolver } from './misc/resolver/crud.resolver';
 import { AuthService } from './services/auth.service';
+import { ComumService } from './services/comum.service';
 registerLocaleData(ptBr, 'pt-BR')
 
 @NgModule({
@@ -37,6 +38,7 @@ registerLocaleData(ptBr, 'pt-BR')
         { provide: NZ_I18N, useValue: pt_BR },
         AuthService,
         CrudResolver,
+        ComumService
     ],
     bootstrap: [AppComponent]
 

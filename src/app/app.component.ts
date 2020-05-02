@@ -3,6 +3,7 @@ import { MenuService } from './services/menu.service';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { StorageService } from './services/storage.service';
+import { ComumService } from './services/comum.service';
 
 @Component({
     selector: 'app-root',
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
     constructor(private menu: MenuService,
         private router: Router,
         private storage: StorageService,
+        private comum: ComumService,
         private auth: AuthService) {
     }
 

@@ -4,6 +4,7 @@ import { NgZorroAntdModule } from 'ng-zorro-antd';
 import { ComponentsModule } from 'src/app/components/components.module';
 import { ContatoRoutingModule } from './contato-routing.module';
 import { ContatoComponent } from './contato.component';
+import { ComumService } from 'src/app/services/comum.service';
 
 
 
@@ -14,6 +15,8 @@ import { ContatoComponent } from './contato.component';
         NgZorroAntdModule,
         ContatoRoutingModule,
         ComponentsModule
-    ]
-})
+    ],
+    providers: [
+        ComumService
+    ]})
 export class ContatoModule { }

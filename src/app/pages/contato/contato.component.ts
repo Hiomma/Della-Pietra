@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ComumService } from 'src/app/services/comum.service';
 
 @Component({
     selector: 'app-contato',
@@ -13,18 +16,24 @@ export class ContatoComponent implements OnInit {
     listCarousel: Array<any> = [];
 
     resourceForm = this.formBuilder.group({
-        descricao: [null, [Validators.required, Validators.maxLength(100)]],
+        nome: [null, [Validators.required, Validators.maxLength(100)]],
         email: [null, [Validators.required, Validators.maxLength(100), Validators.email]],
         titulo: [null, [Validators.required, Validators.maxLength(100)]],
         telefone: [null, [Validators.required, Validators.maxLength(100)]],
         mensagem: [null, [Validators.required, Validators.maxLength(1000)]],
     });
 
+    private unsub = new Subject();
+    isPortuguese = true;
+
     constructor(private api: ApiService,
         private formBuilder: FormBuilder,
+        private comum: ComumService,
         private fireStorage: AngularFireStorage) { }
 
     ngOnInit(): void {
-
+        this.comum.changeLanguage$.pipe(takeUntil(this.unsub)).subscribe((language: boolean) => {
+            this.isPortuguese = language;
+        })
     }
 }

@@ -15,6 +15,7 @@ import { JanelaSiteComponent } from './janela-site/janela-site.component';
 import { JanelaComponent } from './janela/janela.component';
 import { SelectFieldComponent } from './select-field/select-field.component';
 import { TextAreaComponent } from './text-area/text-area.component';
+import { ComumService } from '../services/comum.service';
 
 @NgModule({
     declarations: [
@@ -64,6 +65,6 @@ import { TextAreaComponent } from './text-area/text-area.component';
         FooterComponent,
         JanelaSiteComponent,
         FormsModule
-    ]
+    ],
 })
 export class ComponentsModule { }

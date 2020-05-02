@@ -23,9 +23,75 @@
     margin-top: 40px !important;
     margin-bottom: 20px !important;
 
+    .divHover {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+        width: 270px;
+        height: 225px;
+        margin-top: 8px;
+        display: flex;
+        justify-content: center;
+
+        .spanNome {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            margin-top: -20px;
+            color: #fff;
+            text-align: center;
+            -webkit-transition: top 0.5s;
+            transition: top 0.5s;
+            font-size: 20px;
+
+            &.visivel {
+                top: 60px;
+                transition: top 0.5s;
+            }
+        }
+
+        .buttonVerChapa {
+            position: absolute;
+            bottom: 0;
+            margin-bottom: -20px;
+            text-align: center;
+            -webkit-transition: bottom 0.5s;
+            transition: bottom 0.5s;
+            background: white;
+            border-color: white;
+            color: black;
+
+            &.visivel {
+                bottom: 60px;
+                transition: bottom 0.5s;
+            }
+        }
+
+        &.visivel {
+            opacity: 1;
+            transition: all .5s;
+        }
+    }
+
     .imgMaterial {
         width: 270px;
         height: 225px;
         margin-top: 8px;
     }
 }
+
+::ng-deep .centralizar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  ::ng-deep .centralizar .ant-modal {
+    top: 0;
+  }

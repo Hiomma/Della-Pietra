@@ -27,11 +27,41 @@
     }
 }
 
-.divFooter {
-    text-align: center;
+.footer {
+    border-top: 5px solid rgb(255, 180, 0);
 
-    [nz-icon] {
-        font-size: 35px;
+    .divFooter {
+        text-align: center;
+
+        [nz-icon] {
+            font-size: 35px;
+        }
+
+        .divBrasil {
+            background: url("../../../assets/images/brazil.jpg");
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            cursor: pointer;
+        }
+        
+        .divEua {
+            background: url("../../../assets/images/estados-unidos-icone.png");
+            height: 40px;
+            width: 40px;
+            border-radius: 50%;
+            background-size: cover;
+            background-position: center;
+            margin-left: 16px;
+            cursor: pointer;
+        }
+
+        &.paises {
+            justify-content: center;
+            display: flex;
+        }
     }
 }
 
@@ -45,4 +75,16 @@
 
 .ant-menu-horizontal {
     border: none;
+}
+
+.ant-menu-horizontal>.ant-menu-item-active,
+.ant-menu-horizontal>.ant-menu-item-open,
+.ant-menu-horizontal>.ant-menu-item-selected,
+.ant-menu-horizontal>.ant-menu-item:hover,
+.ant-menu-horizontal>.ant-menu-submenu-active,
+.ant-menu-horizontal>.ant-menu-submenu-open,
+.ant-menu-horizontal>.ant-menu-submenu-selected,
+.ant-menu-horizontal>.ant-menu-submenu:hover {
+    color: rgb(255, 180, 0);
+    border-bottom: 2px solid rgb(255, 180, 0);
 }

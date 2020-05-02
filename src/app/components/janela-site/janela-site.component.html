@@ -5,7 +5,7 @@
             <ul nz-col nzSpan="12" nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
                 <li nz-menu-item [nzSelected]="this.isSelected(menu.routerLink[0])" [routerLink]="menu.routerLink"
                     *ngFor="let menu of listMenu">
-                    {{menu.name}}</li>
+                    {{isPortuguese ? menu.name : menu.englishName}}</li>
             </ul>
         </div>
     </nz-header>
@@ -14,17 +14,20 @@
             <ng-content></ng-content>
         </nz-content>
     </nz-layout>
-    <nz-footer>
+    <nz-footer class="footer">
         <div>
             <div nz-col nzSpan="8" class="divFooter">
                 <i nz-icon nzType="facebook" nzTheme="outline" style="margin-right: 20px;"></i>
                 <i nz-icon nzType="instagram" nzTheme="outline"></i>
             </div>
             <div nz-col nzSpan="8" class="divFooter">
-                Gabriel Sereno ©{{year}}
+                {{isPortuguese ? 'Feito por' : 'Developed by'}} <a
+                    href="https://www.instagram.com/gabrielsereno.js/" target="_blank">Gabriel Sereno</a>
+                ©{{year}}
             </div>
-            <div nz-col nzSpan="8" class="divFooter">
-                Gabriel Sereno ©{{year}}
+            <div nz-col nzSpan="8" class="divFooter paises" nz-row>
+                <div class="divBrasil" nz-col nzSpan="16" (click)="mudarIdioma('pt-br')"></div>
+                <div class="divEua" nz-col nzSpan="16" (click)="mudarIdioma('en-us')"></div>
             </div>
         </div>
     </nz-footer>
