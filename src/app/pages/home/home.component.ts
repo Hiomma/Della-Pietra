@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { takeUntil } from 'rxjs/operators';
 import { ComumService } from 'src/app/services/comum.service';
 import { Subject } from 'rxjs';
+import { NzCarouselComponent } from 'ng-zorro-antd';
 
 @Component({
     selector: 'app-home',
@@ -11,6 +12,8 @@ import { Subject } from 'rxjs';
     styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+
+    @ViewChild("carousel") carousel: NzCarouselComponent;
 
     listCarousel: Array<any> = [];
 
@@ -42,6 +45,14 @@ export class HomeComponent implements OnInit {
         }).catch(error => {
             console.error(error);
         })
+    }
+
+    moverEsquerda() {
+        this.carousel.pre();
+    }
+
+    moverDireita() {
+        this.carousel.next();
     }
 
 }

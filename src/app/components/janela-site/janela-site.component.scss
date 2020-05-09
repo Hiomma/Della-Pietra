@@ -2,7 +2,7 @@
     display: flex;
     background: white;
     height: 120px;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 2px solid black;
 }
 
 .divTitulo {
@@ -10,58 +10,104 @@
     margin: 0 auto;
 
     .divLogo {
-        background: url("../../../assets/images/logo.png");
         width: 130px;
         height: 120px;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
+
+        img {
+            width: 280px;
+            height: 100px;
+            object-fit: contain;
+            margin-top: 8px;
+        }
     }
 
     .header-menu {
         line-height: 32px;
-        width: 100%;
+        display: initial;
+        width: 72%;
+        flex: 0 0 auto;
+        float: left;
         text-align: right;
         padding-top: 38px;
         height: calc(100% - 1px);
     }
 }
 
-.footer {
-    border-top: 5px solid rgb(255, 180, 0);
+.divFooterFrente {
+    background: #ffb400;
+    width: 100%;
+    height: 40px;
+}
 
-    .divFooter {
-        text-align: center;
+nz-footer {
+    background: rgb(34, 34, 34);
 
-        [nz-icon] {
-            font-size: 35px;
-        }
 
-        .divBrasil {
-            background: url("../../../assets/images/brazil.jpg");
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-        }
-        
-        .divEua {
-            background: url("../../../assets/images/estados-unidos-icone.png");
-            height: 40px;
-            width: 40px;
-            border-radius: 50%;
-            background-size: cover;
-            background-position: center;
-            margin-left: 16px;
-            cursor: pointer;
-        }
+    .footer {
+        width: 1170px;
+        margin: 0 auto;
 
-        &.paises {
-            justify-content: center;
-            display: flex;
+        .divFooter {
+            [nz-icon] {
+                font-size: 35px;
+                color: rgb(177, 172, 161);
+            }
+
+            &.criador {
+                font-size: 10px;
+                text-align: center;
+                color: rgb(177, 172, 161);
+            }
+
+            .pTelefone {
+                text-align: right;
+                color: rgb(177, 172, 161);
+                margin-block-start: 0em;
+                margin-block-end: 0em;
+                line-height: 14px;
+                font-size: 14px;
+            }
+
+            .pNomeEmpresa {
+                margin-block-start: 0em;
+                margin-block-end: 0em;
+                text-align: right;
+                letter-spacing: 1px;
+                font-weight: bold;
+                font-size: 40px;
+                line-height: 40px;
+                color: rgb(177, 172, 161);
+            }
         }
+    }
+}
+
+
+
+.liPaises {
+    display: inline-block;
+    padding-top: 38px;
+
+    .divBrasil {
+        background: url("../../../assets/images/brazil.jpg");
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        cursor: pointer;
+        margin-left: 15px;
+    }
+
+    .divEua {
+        background: url("../../../assets/images/estados-unidos-icone.png");
+        height: 30px;
+        width: 30px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+        margin-left: 16px;
+        cursor: pointer;
     }
 }
 
@@ -75,6 +121,11 @@
 
 .ant-menu-horizontal {
     border: none;
+}
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+    padding: 0px 30px;
 }
 
 .ant-menu-horizontal>.ant-menu-item-active,

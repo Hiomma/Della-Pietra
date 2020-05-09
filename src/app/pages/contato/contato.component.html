@@ -1,8 +1,8 @@
 <janela-site>
     <div class="divMap">
         <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d783.8224910845005!2d-41.119359901007854!3d-20.85151921632506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb942caa4c29f19%3A0x761748d34643ba95!2sRecanto%2C%20Cachoeiro%20de%20Itapemirim%20-%20ES%2C%2029303-040!5e0!3m2!1spt-BR!2sbr!4v1588040303428!5m2!1spt-BR!2sbr"
-            width="1920" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
+            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d554.4653542739537!2d-41.16864502836265!3d-20.791958235833967!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1589040148205!5m2!1spt-BR!2sbr"
+            width="1903" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
             tabindex="0"></iframe>
     </div>
 
@@ -47,11 +47,7 @@
         </div>
 
         <div nz-col nzSpan="12">
-            <div style="padding-left: 100px;">
-                <h1>Della Pietra</h1>
-                <p class="pEndereco">Rua Alvaro Ramos, 105 - CEP 29303-040 </p>
-                <p class="pEndereco">Recanto - Cachoeiro de Itapemirim/ES</p>
-                <p class="pEndereco">Telefone: +55 28 9951-7007 • +55 28 9883-6086</p>
+            <div style="padding-left: 100px;" [innerHTML]="contatos?.contatos">
             </div>
         </div>
     </div>

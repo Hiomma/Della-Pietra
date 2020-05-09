@@ -1,12 +1,24 @@
 <nz-layout style="min-height: 100vh;">
     <nz-header class="headerToolbar">
         <div class="divTitulo" nz-row>
-            <div nz-col nzSpan="12" class="divLogo"></div>
-            <ul nz-col nzSpan="12" nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
+            <div nz-col nzSpan="12" class="divLogo">
+                <img src="../../../assets/images/logo2.png">
+            </div>
+            <ul nz-col nzSpan="10" nz-menu nzTheme="light" nzMode="horizontal" class="header-menu">
                 <li nz-menu-item [nzSelected]="this.isSelected(menu.routerLink[0])" [routerLink]="menu.routerLink"
                     *ngFor="let menu of listMenu">
                     {{isPortuguese ? menu.name : menu.englishName}}</li>
             </ul>
+
+            <div nz-col nzSpan="2" nz-row>
+                <li nz-col nzSpan="12" class="liPaises" nz-col (click)="mudarIdioma('pt-br')">
+                    <div class="divBrasil">
+                    </div>
+                </li>
+                <li nz-col nzSpan="12" class="liPaises" nz-col (click)="mudarIdioma('en-us')">
+                    <div class="divEua"></div>
+                </li>
+            </div>
         </div>
     </nz-header>
     <nz-layout class="inner-layout">
@@ -14,20 +26,25 @@
             <ng-content></ng-content>
         </nz-content>
     </nz-layout>
-    <nz-footer class="footer">
-        <div>
+    <div class="divFooterFrente">
+
+    </div>
+    <nz-footer>
+        <div class="footer">
             <div nz-col nzSpan="8" class="divFooter">
                 <i nz-icon nzType="facebook" nzTheme="outline" style="margin-right: 20px;"></i>
                 <i nz-icon nzType="instagram" nzTheme="outline"></i>
             </div>
-            <div nz-col nzSpan="8" class="divFooter">
-                {{isPortuguese ? 'Feito por' : 'Developed by'}} <a
-                    href="https://www.instagram.com/gabrielsereno.js/" target="_blank">Gabriel Sereno</a>
+            <div nz-col nzSpan="8" class="divFooter criador">
+                {{isPortuguese ? 'Feito por' : 'Developed by'}} <a href="https://www.instagram.com/gabrielsereno.js/"
+                    target="_blank">Gabriel Sereno</a>
                 ©{{year}}
             </div>
-            <div nz-col nzSpan="8" class="divFooter paises" nz-row>
-                <div class="divBrasil" nz-col nzSpan="16" (click)="mudarIdioma('pt-br')"></div>
-                <div class="divEua" nz-col nzSpan="16" (click)="mudarIdioma('en-us')"></div>
+            <div nz-col nzSpan="8" class="divFooter">
+                <div>
+                    <p class="pTelefone">+55 28 99951-7007</p>
+                    <p class="pNomeEmpresa">DELLA PIETRA</p>
+                </div>
             </div>
         </div>
     </nz-footer>

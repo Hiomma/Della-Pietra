@@ -1,7 +1,12 @@
 <janela-site>
-    <nz-carousel nzAutoPlay style="height: 100%;">
-        <div nz-carousel-content *ngFor="let image of listCarousel">
-            <img class="imgHome" [src]="image">
-        </div>
-    </nz-carousel>
+    <div>
+        <nz-carousel nzAutoPlay style="height: 100%;" #carousel>
+            <div nz-carousel-content *ngFor="let image of listCarousel">
+                <img class="imgHome" [src]="image">
+            </div>
+
+        </nz-carousel>
+        <div class="divIcon esquerda" (click)="moverEsquerda()"> <i nz-icon nzType="left" nzTheme="outline"></i> </div>
+        <div class="divIcon direita" (click)="moverDireita()"><i nz-icon nzType="right" nzTheme="outline"></i> </div>
+    </div>
 </janela-site>

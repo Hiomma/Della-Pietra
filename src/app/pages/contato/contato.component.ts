@@ -15,6 +15,8 @@ export class ContatoComponent implements OnInit {
 
     listCarousel: Array<any> = [];
 
+    contatos: any;
+
     resourceForm = this.formBuilder.group({
         nome: [null, [Validators.required, Validators.maxLength(100)]],
         email: [null, [Validators.required, Validators.maxLength(100), Validators.email]],
@@ -34,6 +36,12 @@ export class ContatoComponent implements OnInit {
     ngOnInit(): void {
         this.comum.changeLanguage$.pipe(takeUntil(this.unsub)).subscribe((language: boolean) => {
             this.isPortuguese = language;
+        })
+
+        this.api.getAll("contato").then((contato: any[]) => {
+            this.contatos = contato[0];
+        }).catch(error => {
+            console.error(error);
         })
     }
 }

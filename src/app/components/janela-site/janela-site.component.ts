@@ -13,10 +13,10 @@ import { Subject } from 'rxjs';
 export class JanelaSiteComponent implements OnInit, OnDestroy {
 
     listMenu = [
-        { name: "Home", englishName: "Home", routerLink: ["/"] },
-        { name: "Empresa", englishName: "Company", routerLink: ["/empresa"] },
-        { name: "Materiais", englishName: "Materials", routerLink: ["/materiais"] },
-        { name: "Contato", englishName: "Contact", routerLink: ["/contato"] },
+        { name: "HOME", englishName: "HOME", routerLink: ["/"] },
+        { name: "EMPRESA", englishName: "COMPANY", routerLink: ["/empresa"] },
+        { name: "MATERIAIS", englishName: "MATERIALS", routerLink: ["/materiais"] },
+        { name: "CONTATO", englishName: "CONTACT", routerLink: ["/contato"] },
     ]
 
     year = new Date().getFullYear();
