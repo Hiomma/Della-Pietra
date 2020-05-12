@@ -15,6 +15,9 @@ export class HomeComponent implements OnInit {
 
     @ViewChild("carousel") carousel: NzCarouselComponent;
 
+    height = self.innerHeight;
+    width = self.innerWidth;
+
     listCarousel: Array<any> = [];
 
     private unsub = new Subject();
@@ -47,6 +50,14 @@ export class HomeComponent implements OnInit {
         })
     }
 
+    get alturaCarousel() {
+        if (this.width < 700) {
+            return this.height - 144
+        } else {
+            return this.height - 262
+        }
+    }
+    
     moverEsquerda() {
         this.carousel.pre();
     }

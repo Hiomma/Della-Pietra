@@ -42,7 +42,6 @@
 nz-footer {
     background: rgb(34, 34, 34);
 
-
     .footer {
         width: 1170px;
         margin: 0 auto;
@@ -138,4 +137,64 @@ nz-footer {
 .ant-menu-horizontal>.ant-menu-submenu:hover {
     color: rgb(255, 180, 0);
     border-bottom: 2px solid rgb(255, 180, 0);
+}
+
+@media screen and (max-width: 700px) {
+    .headerToolbar {
+        height: 70px;
+        border-bottom: 2px solid black;
+    }
+
+    .divTitulo {
+        width: 100%;
+        justify-content: center;
+        display: flex;
+
+        .divLogo {
+            width: 130px;
+            height: 120px;
+
+            img {
+                width: 106px;
+                height: 47px;
+            }
+        }
+    }
+
+    .divMenu {
+        position: absolute;
+        left: 20px;
+
+        button {
+            font-size: 24px;
+            top: 8px;
+            color: black;
+        }
+    }
+
+    .divFooterFrente {
+        height: 20px;
+    }
+
+    .ant-layout-sider-light .ant-layout-sider-trigger,
+    .ant-layout-sider-light .ant-layout-sider-zero-width-trigger {
+        display: none;
+    }
+
+    .ant-layout-footer {
+        padding: 8px;
+    }
+
+    nz-footer {
+        .footer {
+            width: 100%;
+
+            .divFooter {
+                .pNomeEmpresa {
+                    font-size: 24px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
 }

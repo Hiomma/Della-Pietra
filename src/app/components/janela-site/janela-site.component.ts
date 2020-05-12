@@ -24,6 +24,10 @@ export class JanelaSiteComponent implements OnInit, OnDestroy {
     private unsub = new Subject();
     isPortuguese = true;
 
+    width = self.innerWidth;
+
+    isCollapsed = false;
+
     constructor(private router: Router,
         private storage: StorageService,
         private comum: ComumService) { }

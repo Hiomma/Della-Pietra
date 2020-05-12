@@ -1,12 +1,10 @@
 .imgHome {
-    width: 1920px;
-    height: 685px;
     object-fit: cover;
 }
 
 .divIcon {
     position: absolute;
-    top: 50%;
+    top: calc(50% - 30px);
     cursor: pointer;
     border-radius: 50%;
     color: white;

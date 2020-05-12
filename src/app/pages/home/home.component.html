@@ -1,11 +1,11 @@
 <janela-site>
-    <div>
+    <div style="position: relative;">
         <nz-carousel nzAutoPlay style="height: 100%;" #carousel>
             <div nz-carousel-content *ngFor="let image of listCarousel">
-                <img class="imgHome" [src]="image">
+                <img class="imgHome" [style.height.px]="alturaCarousel" [style.width.px]="width" [src]="image">
             </div>
-
         </nz-carousel>
+
         <div class="divIcon esquerda" (click)="moverEsquerda()"> <i nz-icon nzType="left" nzTheme="outline"></i> </div>
         <div class="divIcon direita" (click)="moverDireita()"><i nz-icon nzType="right" nzTheme="outline"></i> </div>
     </div>
