@@ -40,7 +40,7 @@
 }
 
 nz-footer {
-    background: rgb(34, 34, 34);
+    background: rgb(34, 34, 34) !important;
 
     .footer {
         width: 1170px;
@@ -151,6 +151,8 @@ nz-footer {
         display: flex;
 
         .divLogo {
+            justify-content: center;
+            display: flex;
             width: 130px;
             height: 120px;
 
@@ -197,4 +199,59 @@ nz-footer {
             }
         }
     }
+
+    .ant-drawer-body {
+        padding: 0;
+    }
+
+    .divLogoMobile {
+        width: 150px;
+        margin: auto;
+        padding: 8px 0;
+        border-bottom: 1px solid #dedede;
+
+        img {
+            width: 150px;
+        }
+    }
+
+    .divFooterMenu {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+
+        .divFooterSuperiorMenu {
+            background: #ffb400;
+            width: 100%;
+            height: 20px;
+        }
+
+        .divFooterMenuInferior {
+            background: rgb(34, 34, 34) !important;
+            padding: 8px;
+
+            .divBrasil {
+                background: url("../../../assets/images/brazil.jpg");
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                cursor: pointer;
+                margin: auto;
+            }
+
+            .divEua {
+                background: url("../../../assets/images/estados-unidos-icone.png");
+                height: 30px;
+                width: 30px;
+                border-radius: 50%;
+                background-size: cover;
+                background-position: center;
+                margin: auto;
+                cursor: pointer;
+            }
+        }
+    }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ComumService } from 'src/app/services/comum.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -8,7 +8,8 @@ import { Subject } from 'rxjs';
 @Component({
     selector: 'janela-site',
     templateUrl: './janela-site.component.html',
-    styleUrls: ['./janela-site.component.scss']
+    styleUrls: ['./janela-site.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class JanelaSiteComponent implements OnInit, OnDestroy {
 

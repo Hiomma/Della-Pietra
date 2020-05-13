@@ -1,7 +1,7 @@
 <janela-site>
     <div class="divHeader">
-        <div class="divTitulo">
-            <div>
+        <div class="divTituloBreadcrumb">
+            <div class="divNome">
                 {{isPortuguese ? 'Empresa' : 'Company'}}
             </div>
             <div class="divBreadcrumb">
@@ -17,14 +17,14 @@
         </div>
     </div>
     <div nz-row class="divConteudo" [nzGutter]="16">
-        <div nz-col nzSpan="12" class="divTexto"
+        <div nz-col nzSm="24" nzMd="12" class="divTexto"
             [innerHTML]="isPortuguese ? textoEmpresa?.texto :  textoEmpresa?.texto_ingles">
         </div>
 
-        <div nz-col nzSpan="12">
+        <div nz-col nzSm="24" nzMd="12">
             <nz-carousel nzAutoPlay class="carouselEmpresa">
                 <div nz-carousel-content *ngFor="let image of listCarousel">
-                    <img class="imgEmpresa" [src]="image">
+                    <img class="imgEmpresa" [src]="image" [style.width.px]="width - 30">
                 </div>
             </nz-carousel>
         </div>

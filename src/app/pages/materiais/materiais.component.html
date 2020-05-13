@@ -1,7 +1,7 @@
 <janela-site>
     <div class="divHeader">
-        <div class="divTitulo">
-            <div>
+        <div class="divTituloBreadcrumb">
+            <div class="divNome">
                 {{isPortuguese ? 'Materiais' : 'Materials'}}
             </div>
             <div class="divBreadcrumb">
@@ -18,7 +18,7 @@
     </div>
 
     <div class="divConteudo">
-        <div>
+        <div *ngIf="width > 700; else carousel">
             <div nz-row [nzGutter]="[16, 16]">
                 <div nz-col [nzSpan]="6" *ngFor="let material of listMateriais" (mouseover)="material.hover = true"
                     (mouseleave)="material.hover = false">
@@ -33,5 +33,20 @@
                 </div>
             </div>
         </div>
+
+        <ng-template #carousel>
+            <div>
+                Veja a nossa galeria de materiais que nós produzimos com total qualidade!
+            </div>
+
+            <nz-carousel nzAutoPlay class="carouselMaterial">
+                <div nz-carousel-content *ngFor="let material of listMateriais">
+                    <img class="imgMaterial" [src]="material.url" [style.width.px]="width - 20">
+                    <div class="divMaterialNome">
+                        {{material.nome}}
+                    </div>
+                </div>
+            </nz-carousel>
+        </ng-template>
     </div>
 </janela-site>

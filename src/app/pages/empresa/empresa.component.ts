@@ -15,6 +15,8 @@ export class EmpresaComponent implements OnInit {
     listCarousel: Array<any> = [];
     textoEmpresa: { texto: string, texto_ingles: string };
 
+    width = self.innerWidth;
+
     private unsub = new Subject();
     isPortuguese = true;
 

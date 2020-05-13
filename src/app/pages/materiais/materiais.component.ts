@@ -19,6 +19,8 @@ export class MateriaisComponent implements OnInit {
     private unsub = new Subject();
     isPortuguese = true;
 
+    width = self.innerWidth;
+
     constructor(private api: ApiService,
         private comum: ComumService,
         private modal: NzModalService,

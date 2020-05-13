@@ -17,6 +17,8 @@ export class ContatoComponent implements OnInit {
 
     contatos: any;
 
+    width = self.innerWidth;
+
     resourceForm = this.formBuilder.group({
         nome: [null, [Validators.required, Validators.maxLength(100)]],
         email: [null, [Validators.required, Validators.maxLength(100), Validators.email]],

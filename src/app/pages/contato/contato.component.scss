@@ -22,4 +22,21 @@
     margin: 0 auto !important;
     margin-top: 40px !important;
     margin-bottom: 40px !important;
+
+    .divNomeContatos {
+        padding-left: 100px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .divConteudo {
+        width: 100%;
+        padding: 8px;
+        margin-top: 10px !important;
+        
+        .divNomeContatos {
+            padding-left: 0px;
+        }
+    }
+
 }

@@ -29,11 +29,30 @@
     <nz-layout>
         <nz-drawer [nzClosable]="false" [nzVisible]="isCollapsed" nzPlacement="left"
             (nzOnClose)="this.isCollapsed = false">
+
+            <div class="divLogoMobile">
+                <img src="../../../assets/images/logo2.png">
+            </div>
+
             <ul nz-col nz-menu nzTheme="light" nzMode="vertical">
                 <li nz-menu-item [nzSelected]="this.isSelected(menu.routerLink[0])" [routerLink]="menu.routerLink"
                     *ngFor="let menu of listMenu">
                     {{isPortuguese ? menu.name : menu.englishName}}</li>
             </ul>
+
+            <div class="divFooterMenu">
+                <div class="divFooterSuperiorMenu">
+                </div>
+                <div class="divFooterMenuInferior" nz-row>
+                    <div nz-col nzSpan="12">
+                        <div class="divBrasil" (click)="mudarIdioma('pt-br')">
+                        </div>
+                    </div>
+                    <div nz-col nzSpan="12">
+                        <div class="divEua" (click)="mudarIdioma('en-us')"></div>
+                    </div>
+                </div>
+            </div>
         </nz-drawer>
 
         <nz-layout class="inner-layout">

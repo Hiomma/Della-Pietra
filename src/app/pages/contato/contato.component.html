@@ -2,12 +2,12 @@
     <div class="divMap">
         <iframe
             src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d554.4653542739537!2d-41.16864502836265!3d-20.791958235833967!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1589040148205!5m2!1spt-BR!2sbr"
-            width="1903" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
-            tabindex="0"></iframe>
+            [width]="width > 700 ? width - 17 : width" height="350" frameborder="0" style="border:0;" allowfullscreen=""
+            aria-hidden="false" tabindex="0"></iframe>
     </div>
 
     <div nz-row class="divConteudo" [nzGutter]="16">
-        <div nz-col nzSpan="12" class="divContato">
+        <div nz-col nzSm="24" nzMd="12" class="divContato">
             <h1>{{isPortuguese ? 'Contato' : 'Contact'}}</h1>
 
             <form nz-form>
@@ -46,8 +46,8 @@
             </form>
         </div>
 
-        <div nz-col nzSpan="12">
-            <div style="padding-left: 100px;" [innerHTML]="contatos?.contatos">
+        <div nz-col nzSm="24" nzMd="12">
+            <div class="divNomeContatos" [innerHTML]="contatos?.contatos">
             </div>
         </div>
     </div>
