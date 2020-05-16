@@ -22,29 +22,19 @@ export class CrudResolver implements Resolve<any> {
         if (route.params.option == 1) {
             return null;
         } else {
-            let table = state.url.split("/")[1];
-
+            let table = state.url.split("/")[2] ?? state.url.split("/")[1];
 
             return new Promise((resolve) => {
-                this.auth.verifyUser().then(() => {
-                    if (this.storage.getStorage("empresa")) {
-                        this.firestore.collection<any>(table, ref => ref.where("empresa", "==", this.storage.getStorage("empresa")[0].uid)).doc(route.params.uid).snapshotChanges().pipe(map(action => {
-                            const data = action.payload.data() as any;
-                            const uid = action.payload.id;
-                            return { uid, ...data };
-                        })).subscribe(data => {
-                            resolve(data);
-                        })
-                    } else {
-                        this.firestore.collection<any>(table).doc(route.params.uid).snapshotChanges().pipe(map(action => {
-                            const data = action.payload.data() as any;
-                            const uid = action.payload.id;
-                            return { uid, ...data };
-                        })).subscribe(data => {
-                            resolve(data);
-                        })
-                    }
+                this.firestore.collection<any>(table == "inicio" ? "carousel" : table).snapshotChanges().pipe(map(actions => {
+                    return actions.map(action => {
+                        const data = action.payload.doc.data() as any;
+                        const uid = action.payload.doc.id;
+                        return { uid, ...data };
+                    })
+                })).subscribe(data => {
+                    resolve(data);
                 })
+
             })
         }
     }

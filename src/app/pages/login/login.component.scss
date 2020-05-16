@@ -6,7 +6,7 @@
     width: 100%;
     background: white;
 
-    .container-center{
+    .container-center {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -16,6 +16,7 @@
     .divImg {
         justify-content: center;
         display: flex;
+        margin-bottom: 20px;
     }
 
     .divBackground {
@@ -38,11 +39,11 @@
     .login-form-button {
         width: 100%;
     }
-    
+
     .version {
         text-align: center;
 
-        p{
+        p {
             margin: 0;
             font-size: 12px;
             color: #adadad;

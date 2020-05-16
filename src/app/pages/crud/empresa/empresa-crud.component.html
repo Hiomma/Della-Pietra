@@ -1,0 +1,19 @@
+<janela>
+    <form [formGroup]="resourceForm">
+
+        <nz-card nzType="inner" nzTitle="Geral">
+            <add-image [control]="resourceForm.get('carousel')" path="empresa" title="Carousel">
+            </add-image>
+            <div>
+                <editor label="Texto" [control]="resourceForm.get('texto')"></editor>
+            </div>
+
+            <div>
+                <editor label="Texto em Inglês" [control]="resourceForm.get('texto_ingles')"></editor>
+            </div>
+        </nz-card>
+
+        <footer [formGroup]="resourceForm" [option]="2" table='empresa'>
+        </footer>
+    </form>
+</janela>

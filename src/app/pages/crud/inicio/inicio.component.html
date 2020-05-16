@@ -1,0 +1,12 @@
+<janela>
+    <form [formGroup]="resourceForm">
+
+        <nz-card nzType="inner" nzTitle="Geral">
+            <add-image [control]="resourceForm.get('carousel')" path="carousel" title="Carousel">
+            </add-image>
+        </nz-card>
+
+        <footer [formGroup]="resourceForm" [option]="2" table='carousel'>
+        </footer>
+    </form>
+</janela>

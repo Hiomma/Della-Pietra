@@ -1108,6 +1108,26 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@ckeditor/ckeditor5-angular@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-angular/-/ckeditor5-angular-1.2.3.tgz#11974244864337c740fc60766b3ed00ac574bafe"
+  integrity sha512-A1dZ7TVhlHTCvBjh9xAQvTX2alMkwE3pbTeOXfPt6AyamhVDnBVKbCa5eDaSd6xeeQHvsqtmMgNHQJn4AhH5mg==
+  dependencies:
+    "@ckeditor/ckeditor5-watchdog" "^17.0.0"
+    tslib "^1.9.0"
+
+"@ckeditor/ckeditor5-build-classic@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-19.0.0.tgz#d06df3e55600f5ff6014d559873efd7996b47a76"
+  integrity sha512-IcLCXslwfVKRq2a0uLuqXYD0OTXoOyjpQdn3PPfyW9ZPmT0VlGLTkO5Rdara6zIFuQHzYGcPvc8EF1lqeQPfTQ==
+
+"@ckeditor/ckeditor5-watchdog@^17.0.0":
+  version "17.0.0"
+  resolved "https://registry.yarnpkg.com/@ckeditor/ckeditor5-watchdog/-/ckeditor5-watchdog-17.0.0.tgz#8b3517a27dbd70f9686d79aa4c763ccd6d98e6ca"
+  integrity sha512-qwRYWjv6qYuHD3tj4qB7XtuRGQteVtaoVl2Mzg8pNRP85WbTssZxQgDno951pPqR67Mqxe9YwxtrNMiZfQesrw==
+  dependencies:
+    lodash-es "^4.17.10"
+
 "@cypress/listr-verbose-renderer@0.4.1":
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/@cypress/listr-verbose-renderer/-/listr-verbose-renderer-0.4.1.tgz#a77492f4b11dcc7c446a34b3e28721afd33c642a"
@@ -5502,6 +5522,11 @@ locate-path@^5.0.0:
   integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
   dependencies:
     p-locate "^4.1.0"
+
+lodash-es@^4.17.10:
+  version "4.17.15"
+  resolved "https://registry.yarnpkg.com/lodash-es/-/lodash-es-4.17.15.tgz#21bd96839354412f23d7a10340e5eac6ee455d78"
+  integrity sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
 
 lodash.camelcase@^4.3.0:
   version "4.3.0"

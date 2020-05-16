@@ -1,22 +1,56 @@
-.janelaCrud {
-    position: absolute;
-    top: 0px;
-    width: calc(100% - 48px);
+.logo {
+    height: 31px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+}
+
+.divLogo {
+    background: url("../../../assets/images/logo2.png");
+    width: 92px;
+    height: 40px;
+    margin-right: 16px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    top: 15px;
+}
+
+.header-menu {
+    line-height: 64px;
+}
+
+.sider-menu {
     height: 100%;
-    background: white;
-    z-index: 999;
+    border-right: 0;
+}
 
-    .toolbarTitulo {
-        background: var(--backgroundAzulEscuro);
-        height: 56px;
-        padding-left: 16px;
-        padding-top: 08px;
-        font-weight: bold;
-        font-size: 26px;
+.inner-layout {
+    padding: 24px 24px;
+}
 
+.divUsername {
+    position: absolute;
+    right: 20px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+
+    .imgUser {
+        margin-right: 20px;
+        width: 40px;
+        border-radius: 50%;
     }
+}
 
-    .divBody {
-        padding-top: 16px;
-    }
+nz-breadcrumb {
+    margin: 16px 0;
+}
+
+nz-content {
+    background: #fff;
+    padding: 24px;
+    min-height: 280px;
 }

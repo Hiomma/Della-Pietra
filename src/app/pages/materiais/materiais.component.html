@@ -39,7 +39,7 @@
                 Veja a nossa galeria de materiais que nós produzimos com total qualidade!
             </div>
 
-            <nz-carousel nzAutoPlay class="carouselMaterial">
+            <nz-carousel [nzAutoPlaySpeed]="5000" nzAutoPlay class="carouselMaterial">
                 <div nz-carousel-content *ngFor="let material of listMateriais">
                     <img class="imgMaterial" [src]="material.url" [style.width.px]="width - 20">
                     <div class="divMaterialNome">

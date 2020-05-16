@@ -1,73 +1,35 @@
 <div class="divBackground">
-    <nz-carousel [nzEffect]="'scrollx'" [nzEnableSwipe]="false">
-        <div nz-carousel-content>
-
-            <div class="container-center">
-                <form nz-form [formGroup]="resourceForm" class="login-form" (ngSubmit)="logar()">
-                    <div class="divImg">
-                        <img src="../../../assets/images/logo.jpg" style="width: 200px;">
-                    </div>
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Insira seu e-mail">
-                            <nz-input-group nzPrefixIcon="user">
-                                <input [disabled]="bLoading" type="text" nz-input formControlName="userName" nzSize="large" placeholder="E-mail" />
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Insira sua senha">
-                            <nz-input-group nzPrefixIcon="lock">
-                                <input [disabled]="bLoading" type="password" nz-input formControlName="password" nzSize="large" placeholder="Senha" />
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item style="margin-bottom: 10px">
-                        <nz-form-control>
-                            <button nz-button class="login-form-button" nzSize="large" [nzType]="'primary'" [nzLoading]="bLoading">
-                                {{ strBotaoEntrar }}
-                            </button>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <button nz-button nzType="link" (click)="next()" nzBlock>Esqueci minha senha</button>
-                    </nz-form-item>
-
-                    <div class="version">
-                        <p>v{{versao}}</p>
-                    </div>
-                </form>
+    <div class="container-center">
+        <form nz-form [formGroup]="resourceForm" class="login-form" (ngSubmit)="logar()">
+            <div class="divImg">
+                <img src="../../../assets/images/logo2.png" style="width: 200px;">
             </div>
-        </div>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Insira seu e-mail">
+                    <nz-input-group nzPrefixIcon="user">
+                        <input type="text" nz-input formControlName="userName" nzSize="large" placeholder="E-mail" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item>
+                <nz-form-control nzErrorTip="Insira sua senha">
+                    <nz-input-group nzPrefixIcon="lock">
+                        <input type="password" nz-input formControlName="password" nzSize="large" placeholder="Senha" />
+                    </nz-input-group>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item style="margin-bottom: 10px">
+                <nz-form-control>
+                    <button nz-button class="login-form-button" nzSize="large" [nzType]="'primary'"
+                        [nzLoading]="bLoading">
+                        {{ strBotaoEntrar }}
+                    </button>
+                </nz-form-control>
+            </nz-form-item>
 
-        <!-- Reset da senha -->
-        <div nz-carousel-content>
-            <div class="container-center">
-                <form nz-form [formGroup]="resetGroup" class="login-form">
-                    <div class="divImg">
-                        <img src="../../../assets/images/logo.jpg" style="width: 200px;">
-                    </div>
-                    <nz-form-item>
-                        <nz-form-control nzErrorTip="Insira seu e-mail">
-                            <nz-input-group nzPrefixIcon="user">
-                                <input type="text" autofocus nz-input formControlName="email" placeholder="E-mail" />
-                            </nz-input-group>
-                        </nz-form-control>
-                    </nz-form-item>
-
-                    <nz-form-item style="margin-bottom: 5px">
-                        <nz-form-control>
-                            <button nz-button class="login-form-button" [nzType]="'primary'" [disabled]="resetGroup.invalid"
-                                (click)="resetPassword()">Recuperar senha</button>
-                        </nz-form-control>
-                    </nz-form-item>
-                    <nz-form-item>
-                        <nz-form-control>
-                            <button nz-button class="login-form-button" [nzType]="'link'"
-                                (click)="back()">Voltar</button>
-                        </nz-form-control>
-                    </nz-form-item>
-                </form>
+            <div class="version">
+                <p>v{{versao}}</p>
             </div>
-        </div>
-    </nz-carousel>
+        </form>
+    </div>
 </div>

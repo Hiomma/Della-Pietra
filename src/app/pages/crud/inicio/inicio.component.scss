@@ -1,0 +1,23 @@
+.tutorial-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.tutorial{
+    width: 700px;
+    background: #FFFFFF;
+    box-shadow: 0px 11px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 20px;
+    display: flex;
+    padding: 1.5rem;
+
+    .icon{
+        width: 30%;
+    }
+
+    .body{
+        width: 70%;
+    }
+}

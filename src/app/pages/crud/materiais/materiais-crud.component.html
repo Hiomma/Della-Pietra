@@ -1,0 +1,15 @@
+<janela>
+    <form [formGroup]="resourceForm">
+
+        <nz-card nzType="inner" nzTitle="Geral">
+
+            <add-image [control]="resourceForm.get('carousel')" path="empresa" title="Carousel"
+                (getFile)="this.file = $event">
+            </add-image>
+
+        </nz-card>
+
+        <footer [formGroup]="resourceForm" [option]="2" table='empresa' (formConfirmed)="formConfirmed()">
+        </footer>
+    </form>
+</janela>

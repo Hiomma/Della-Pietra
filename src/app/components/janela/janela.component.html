@@ -1,5 +1,31 @@
-<div class="janelaCrud">
-    <div class='divBody'>
-        <ng-content></ng-content>
-    </div>
-</div>
+<nz-layout style="height: 100vh;">
+    <nz-header style="display: flex;">
+        <div class="divLogo"></div>
+        <div class="logo">Della Pietra</div>
+    </nz-header>
+    <nz-layout>
+        <nz-sider nzWidth="200px" nzTheme="light">
+            <ul nz-menu nzMode="inline" nzTheme="dark" [nzInlineCollapsed]="isCollapsed" class="sider-menu">
+                <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="isCollapsed ? 'Página Inicial' : ''"
+                    [nzSelected]="this.isSelected('inicio')" [routerLink]="['inicio']">
+                    <i nz-icon nzType="home"></i>
+                    <span>Página Inicial</span>
+                </li>
+                <li nz-menu-item nz-tooltip nzPlacement="right" [nzTitle]="aux.name" *ngFor="let aux of listMenu"
+                    [nzSelected]="this.isSelected(aux.routerLink[0])" [routerLink]="aux.routerLink">
+                    <i nz-icon [nzType]="aux.icon"></i>
+                    <span>{{aux.name}}</span>
+                </li>
+                <li nz-menu-item nz-tooltip nzPlacement="right" nzTitle="Logout" (click)="logout()">
+                    <i nz-icon nzType="logout"></i>
+                    <span>Sair</span>
+                </li>
+            </ul>
+        </nz-sider>
+        <nz-layout class="inner-layout">
+            <nz-content style="position: relative;">
+                <ng-content></ng-content>
+            </nz-content>
+        </nz-layout>
+    </nz-layout>
+</nz-layout>

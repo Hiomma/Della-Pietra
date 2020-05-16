@@ -52,7 +52,7 @@ export class MateriaisComponent implements OnInit {
                 material: material
             },
             nzWrapClassName: "centralizar",
-            nzWidth: "70%",
+            nzWidth: "820px",
             nzFooter: [
                 {
                     label: 'Voltar',

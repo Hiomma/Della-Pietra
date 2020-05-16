@@ -38,9 +38,9 @@ export class HomeComponent implements OnInit {
     private carregarImagens() {
         this.listCarousel = [];
 
-        this.api.getAll("carousel").then((listCarousel: Array<any>) => {
-            listCarousel.forEach(element => {
-                const ref = this.fireStorage.ref(this.isPortuguese ? element.caminho : element.caminhoIngles);
+        this.api.getAll("carousel").then((carousel: Array<any>) => {
+            carousel[0].carousel.forEach(element => {
+                const ref = this.fireStorage.ref(element);
                 ref.getDownloadURL().subscribe((data) => {
                     this.listCarousel.push(data);
                 })
@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
             return this.height - 262
         }
     }
-    
+
     moverEsquerda() {
         this.carousel.pre();
     }

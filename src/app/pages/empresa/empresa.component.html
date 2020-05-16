@@ -22,9 +22,9 @@
         </div>
 
         <div nz-col nzSm="24" nzMd="12">
-            <nz-carousel nzAutoPlay class="carouselEmpresa">
+            <nz-carousel nzAutoPlay [nzAutoPlaySpeed]="5000" class="carouselEmpresa">
                 <div nz-carousel-content *ngFor="let image of listCarousel">
-                    <img class="imgEmpresa" [src]="image" [style.width.px]="width - 30">
+                    <img class="imgEmpresa" [src]="image" [style.width.px]="width > 700 ? 573 : width - 30">
                 </div>
             </nz-carousel>
         </div>

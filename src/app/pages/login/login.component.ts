@@ -37,12 +37,11 @@ export class LoginComponent implements OnInit {
     }
 
     logar(): void {
-
         this.bLoading = true;
         this.strBotaoEntrar = "";
 
         this.auth.login(this.resourceForm.value).then(() => {
-            this.router.navigate(["home"]);
+            this.router.navigate(["inicio"]);
         }).catch(error => {
 
             // Volta estado normal
@@ -55,22 +54,4 @@ export class LoginComponent implements OnInit {
             }
         })
     }
-
-    resetPassword() {
-        this.auth.resetPassword(this.resetGroup.get("email").value).then(() => {
-            this.message.create("success", "O E-mail de Recuperação foi enviado com sucesso!");
-        }).catch(error => {
-            this.message.create("error", "Erro ao enviar o e-mail para a recuperação da senha. Tente novamente!")
-            console.error(error);
-        })
-    }
-
-    next() {
-        this.carousel.next();
-    }
-
-    back() {
-        this.carousel.pre();
-    }
-
 }

@@ -38,13 +38,11 @@ export class FooterComponent {
         switch (this.option) {
             case EnumOption.Create:
                 body.data_cadastro = new Date().toLocaleString();
-                this.formGroup.get("data_cadastro").setValue(body.data_cadastro);
 
                 this.firestore.collection<any>(this.table).add(body).then((data: any) => {
                     this.formGroup.get("uid").setValue(data.id)
                     this.message.create("success", "Os dados foram incluídos com sucesso!");
                     this.formConfirmed.emit(this.formGroup);
-                    this.voltar();
 
                     this.comumService.closedPage$.next(null);
                 }).catch(err => {
@@ -54,12 +52,10 @@ export class FooterComponent {
                 break;
             case EnumOption.Update:
                 body.data_alteracao = new Date().toLocaleString();
-                this.formGroup.get("data_alteracao").setValue(body.data_alteracao);
 
                 this.firestore.collection<any>(this.table).doc(this.formGroup.get("uid").value).update(body).then(() => {
                     this.message.create("success", "Os dados foram alterados com sucesso!");
                     this.formConfirmed.emit(this.formGroup);
-                    this.voltar();
 
                     this.comumService.closedPage$.next({ action: "update" });
                 }).catch(err => {
@@ -71,7 +67,6 @@ export class FooterComponent {
                 this.firestore.collection<any>(this.table).doc(this.formGroup.get("uid").value).delete().then(() => {
                     this.message.create("success", "Os dados foram excluídos com sucesso!");
                     this.formConfirmed.emit(this.formGroup);
-                    this.voltar();
 
                     this.comumService.closedPage$.next(null);
                 }).catch(err => {
