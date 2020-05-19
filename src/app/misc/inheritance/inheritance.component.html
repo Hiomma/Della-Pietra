@@ -1,6 +1,7 @@
 <inputField [control]="searchControl" placeholder="Digite para pesquisar..." [isSearch]="true"></inputField>
 
-<nz-table #columnTable [nzData]="listData" [nzScroll]="{ x: '1100px' }" [nzLoading]="loadingTable">
+<nz-table #columnTable [nzData]="listData" [nzScroll]="{ x: '1100px' }" [nzLoading]="loadingTable"
+    [nzPageSize]="pageSize" [(nzPageIndex)]="pageIndex">
     <thead>
         <tr>
             <th *ngFor="let aux of listColumns" [nzWidth]="aux.width" nzLeft="0px">{{aux.name}}</th>
@@ -11,7 +12,7 @@
     <tbody>
         <tr *ngFor="let data of columnTable.data; let i = index">
             <td nzLeft="0px" *ngFor="let aux of listColumns; let j = index">
-                {{ listExhibitionTable[i] ? listExhibitionTable[i][j] : null }}
+          {{ listExhibitionTable[i + (pageSize * (pageIndex - 1))] ? listExhibitionTable[i + (pageSize * (pageIndex - 1))][j] : null }}
             </td>
             <td nzRight="0px">
                 <nz-switch [(ngModel)]="data.status" (ngModelChange)="setDataBloqueio(data)">

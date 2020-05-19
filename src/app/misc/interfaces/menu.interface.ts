@@ -3,10 +3,10 @@ export interface IMenu {
     icon: string;
     routerLink?: any;
     actions?: Array<IActions>;
-    isEmpresa: boolean;
 }
 
 export interface IActions {
     name: string;
     routerLink: any;
+    action: any;
 }

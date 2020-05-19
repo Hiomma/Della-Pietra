@@ -2,8 +2,8 @@
     <form [formGroup]="resourceForm">
 
         <nz-card nzType="inner" nzTitle="Geral">
-            <add-image [control]="resourceForm.get('carousel')" path="empresa" title="Carousel">
-            </add-image>
+            <add-images [control]="resourceForm.get('carousel')" path="empresa" title="Carousel">
+            </add-images>
             <div>
                 <editor label="Texto" [control]="resourceForm.get('texto')"></editor>
             </div>

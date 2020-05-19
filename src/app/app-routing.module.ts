@@ -12,12 +12,15 @@ const appRoutes: Routes = [
     {
         path: 'crud/empresa', loadChildren: () => import('./pages/crud/empresa/empresa-crud.module').then(m => m.EmpresaCrudModule)
     },
-    // {
-    //     path: 'crud/empresa', loadChildren: () => import('./pages/crud/empresa/empresa-crud.module').then(m => m.EmpresaCrudModule)
-    // },
-    // {
-    //     path: 'crud/empresa', loadChildren: () => import('./pages/crud/empresa/empresa-crud.module').then(m => m.EmpresaCrudModule)
-    // },
+    {
+        path: 'crud/materiais', loadChildren: () => import('./pages/crud/materiais/materiais-crud.module').then(m => m.MateriaisCrudModule)
+    },
+    {
+        path: 'crud/contato', loadChildren: () => import('./pages/crud/contato/contato-crud.module').then(m => m.ContatoCrudModule)
+    },
+    {
+        path: 'crud/mensagens', loadChildren: () => import('./pages/crud/mensagens/mensagens-crud.module').then(m => m.MensagensCrudModule)
+    },
     {
         path: 'inicio', loadChildren: () => import('./pages/crud/inicio/inicio.module').then(m => m.InicioModule)
     },

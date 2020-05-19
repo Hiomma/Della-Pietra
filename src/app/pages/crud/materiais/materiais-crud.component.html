@@ -3,13 +3,17 @@
 
         <nz-card nzType="inner" nzTitle="Geral">
 
-            <add-image [control]="resourceForm.get('carousel')" path="empresa" title="Carousel"
+            <add-image [control]="resourceForm.get('caminho')" path="materiais" title="Material"
                 (getFile)="this.file = $event">
             </add-image>
 
+            <div>
+                <inputField [control]="resourceForm.get('nome')" label="Nome" placeholder="Digite o nome do Material">
+                </inputField>
+            </div>
         </nz-card>
 
-        <footer [formGroup]="resourceForm" [option]="2" table='empresa' (formConfirmed)="formConfirmed()">
+        <footer [formGroup]="resourceForm" [option]="option" table='materiais' (formConfirmed)="formConfirmed()">
         </footer>
     </form>
 </janela>

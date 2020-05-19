@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/misc/guards/auth.guard';
 import { CrudResolver } from 'src/app/misc/resolver/crud.resolver';
-import { MateriaisCrudComponent } from './materiais-crud.component';
-import { MateriaisListaComponent } from './materiais-lista.component';
+import { MensagensCrudComponent } from './mensagens-crud.component';
+import { MensagensListaComponent } from './mensagens-lista.component';
 
 
 const routes: Routes = [
     {
-        path: "", component: MateriaisListaComponent
+        path: "", component: MensagensListaComponent
     }, {
-        path: 'materiais', component: MateriaisCrudComponent,
+        path: 'mensagens', component: MensagensCrudComponent,
         resolve: { crud: CrudResolver },
         canActivate: [AuthGuard],
     },
@@ -20,4 +20,4 @@ const routes: Routes = [
     imports: [RouterModule.forChild(routes)],
     exports: [RouterModule]
 })
-export class MateriaisCrudRoutingModule { }
+export class MensagensCrudRoutingModule { }

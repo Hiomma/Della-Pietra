@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from 'src/app/misc/guards/auth.guard';
-import { CrudResolver } from 'src/app/misc/resolver/crud.resolver';
+import { UniqueResolver } from 'src/app/misc/resolver/unique.resolver';
 import { EmpresaCrudComponent } from './empresa-crud.component';
 
 
 const routes: Routes = [
     {
         path: "", component: EmpresaCrudComponent,
-        resolve: { crud: CrudResolver },
+        resolve: { crud: UniqueResolver },
         canActivate: [AuthGuard],
     }
 ];

@@ -6,7 +6,7 @@ import { InheritanceService } from 'src/app/misc/inheritance/inheritance.service
     providedIn: 'root'
 })
 
-export class MateriaisCrudService extends InheritanceService {
+export class MensagensCrudService extends InheritanceService {
 
     constructor(
         private formBuilder: FormBuilder,
@@ -17,9 +17,12 @@ export class MateriaisCrudService extends InheritanceService {
 
     getFormGroup(): FormGroup {
         return this.formBuilder.group({
-            caminho: [null, [Validators.required, Validators.maxLength(2000)]],
+            uid: [],
+            mensagem: [null, [Validators.required, Validators.maxLength(9000)]],
+            titulo: [null, [Validators.required, Validators.maxLength(2000)]],
             nome: [null, [Validators.required, Validators.maxLength(2000)]],
-            uid: []
+            email: [null, [Validators.required, Validators.email, Validators.maxLength(2000)]],
+            telefone: [null, [Validators.required, Validators.maxLength(20)]],
         })
     }
 

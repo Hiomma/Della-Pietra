@@ -17,9 +17,8 @@ export class ContatoCrudService extends InheritanceService {
 
     getFormGroup(): FormGroup {
         return this.formBuilder.group({
-            texto: [null, [Validators.required, Validators.maxLength(2000)]],
-            texto_ingles: [null, [Validators.required, Validators.maxLength(2000)]],
-            carousel: []
+            uid: [],
+            contatos: [null, [Validators.required, Validators.maxLength(4000)]],
         })
     }
 
@@ -28,6 +27,5 @@ export class ContatoCrudService extends InheritanceService {
     }
 
     setValoresDisable(resourceForm: FormGroup): void {
-        resourceForm.get("imagem").disable();
     }
 }

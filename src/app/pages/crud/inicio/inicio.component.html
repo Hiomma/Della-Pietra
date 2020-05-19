@@ -2,8 +2,8 @@
     <form [formGroup]="resourceForm">
 
         <nz-card nzType="inner" nzTitle="Geral">
-            <add-image [control]="resourceForm.get('carousel')" path="carousel" title="Carousel">
-            </add-image>
+            <add-images [control]="resourceForm.get('carousel')" path="carousel" title="Carousel">
+            </add-images>
         </nz-card>
 
         <footer [formGroup]="resourceForm" [option]="2" table='carousel'>

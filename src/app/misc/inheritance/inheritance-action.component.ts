@@ -34,7 +34,7 @@ export abstract class InheritanceActionComponent implements OnInit {
 
     /** @description Pega os valores e joga para o FormGroup automaticamente */
     loadResource() {
-        this.route.params.pipe(take(1)).subscribe((params: any) => { this.option = parseFloat(params.option) });
+        this.route.queryParams.pipe(take(1)).subscribe((params: any) => { this.option = parseFloat(params.option) });
 
         this.route.data.pipe(take(1)).subscribe((resource: any) => {
             if (this.option == EnumOption.Create) {

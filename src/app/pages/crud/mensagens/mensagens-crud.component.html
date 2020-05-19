@@ -1,0 +1,37 @@
+<janela>
+    <form [formGroup]="resourceForm">
+
+        <nz-card nzType="inner" nzTitle="Geral">
+
+            <div nz-row [nzGutter]="16">
+                <div nz-col nzSpan="12">
+                    <inputField [control]="resourceForm.get('nome')" [label]="'Nome'">
+                    </inputField>
+                </div>
+                <div nz-col nzSpan="12">
+                    <inputField [control]="resourceForm.get('email')" label="E-mail"></inputField>
+                </div>
+            </div>
+            <div nz-row [nzGutter]="16">
+                <div nz-col nzSpan="12">
+                    <inputField [control]="resourceForm.get('titulo')" [label]="'Título'">
+                    </inputField>
+                </div>
+                <div nz-col nzSpan="12">
+                    <inputField [control]="resourceForm.get('telefone')" [label]="'Telefone'">
+                    </inputField>
+                </div>
+            </div>
+            <div nz-row>
+                <div nz-col nzSpan="24">
+                    <textareaField style="width: 100%" [control]="resourceForm.get('mensagem')" [label]="'Mensagem'">
+                    </textareaField>
+                </div>
+            </div>
+
+        </nz-card>
+
+        <footer [formGroup]="resourceForm" [option]="option" table='mensagens' (formConfirmed)="formConfirmed()">
+        </footer>
+    </form>
+</janela>

@@ -15,6 +15,7 @@ export class JanelaComponent implements OnInit {
         { name: 'Empresa', icon: "bank", routerLink: ["/crud/empresa"] },
         { name: 'Materiais', icon: "play-square", routerLink: ["/crud/materiais"] },
         { name: 'Contato', icon: "form", routerLink: ["/crud/contato"] },
+        { name: 'Mensagens', icon: "form", routerLink: ["/crud/mensagens"] },
     ];
 
     constructor(private router: Router,
@@ -32,7 +33,7 @@ export class JanelaComponent implements OnInit {
     }
 
     logout() {
-        this.router.navigate([{ outlets: { cadastro: null } }])
+        this.router.navigate(["login"])
         this.auth.logout();
     }
 }

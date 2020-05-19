@@ -14,6 +14,7 @@ import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CrudResolver } from './misc/resolver/crud.resolver';
+import { UniqueResolver } from './misc/resolver/unique.resolver';
 import { AuthService } from './services/auth.service';
 import { ComumService } from './services/comum.service';
 registerLocaleData(ptBr, 'pt-BR')
@@ -38,6 +39,7 @@ registerLocaleData(ptBr, 'pt-BR')
         { provide: NZ_I18N, useValue: pt_BR },
         AuthService,
         CrudResolver,
+        UniqueResolver,
         ComumService
     ],
     bootstrap: [AppComponent]

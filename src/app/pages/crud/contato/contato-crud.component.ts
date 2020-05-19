@@ -1,8 +1,7 @@
-import { Component, Injector } from '@angular/core';
-import { AngularFireStorage } from '@angular/fire/storage';
-import { EnumOption } from 'src/app/misc/enums/comum.enum';
-import { InheritanceActionComponent } from 'src/app/misc/inheritance/inheritance-action.component';
-import { ApiService } from 'src/app/services/api.service';
+import { Component } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs/operators';
 import { ContatoCrudService } from './contato-crud.service';
 
 @Component({
@@ -10,42 +9,20 @@ import { ContatoCrudService } from './contato-crud.service';
     templateUrl: './contato-crud.component.html',
     styleUrls: ['./contato-crud.component.scss']
 })
-export class ContatoCrudComponent extends InheritanceActionComponent {
+export class ContatoCrudComponent {
 
-    file: any;
-    contato: any;
+    resourceForm: FormGroup;
 
-    constructor(injector: Injector,
-        contatoCrudService: ContatoCrudService,
-        private api: ApiService,
-        private fireStorage: AngularFireStorage) {
-        super(injector, contatoCrudService)
-    }
+    constructor(
+        private contatoCrudService: ContatoCrudService,
+        private route: ActivatedRoute,
+    ) { }
 
     ngOnInit() {
-        super.ngOnInit();
-
-        this.api.getAll("contato").then((data: Array<any>) => {
-            this.contato = data[0];
-        }).catch(error => {
-            console.error(error);
-        })
+        this.route.data.pipe(take(1)).subscribe((resource: any) => {
+            this.resourceForm = this.contatoCrudService.getFormGroup();
+            this.contatoCrudService.setValor(this.resourceForm, resource?.crud[0]);
+            this.contatoCrudService.setValoresDefaults(this.resourceForm);
+        });
     }
-
-    /**
-     * @description Ao confirmar é acionado essa função
-     */
-    formConfirmed() {
-        if (this.option != EnumOption.Create && this.resourceForm.get("imagem").value) {
-            this.fireStorage.ref(this.resourceForm.get("imagem").value).delete();
-        }
-
-        if (this.option != EnumOption.Delete) {
-            if (this.file) {
-                const ref = this.fireStorage.ref(this.resourceForm.get("imagem").value);
-                ref.put(this.file);
-            }
-        }
-    }
-
 }

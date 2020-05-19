@@ -18,6 +18,9 @@ import { IActions, IMenu } from '../interfaces/menu.interface';
 })
 export class InheritanceComponent implements OnInit {
 
+    /** @description Altura da tela */
+    alturaTela: number = self.innerHeight;
+
     /** @description Lista de Colunas da Tabela */
     @Input() listColumns: Array<any> = [];
 
@@ -43,6 +46,12 @@ export class InheritanceComponent implements OnInit {
 
     /** @description Açoes do Botões */
     actions: IActions[];
+
+    /** @description Indice da página */
+    pageIndex = 1;
+
+    /** @description Indice da página */
+    pageSize = this.alturaTela > 800 ? 9 : 6;
 
     constructor(private router: Router,
         private firestore: AngularFirestore,
@@ -73,31 +82,17 @@ export class InheritanceComponent implements OnInit {
     /** @description Requisição para filtrar os dados */
     filterData(string = "", action?: string) {
         this.loadingTable = true;
-        if (this.storage.getStorage("empresa")) {
-            this.firestore.collection<any>(this.table, ref => ref.orderBy(["conteudos", "ofertas"].includes(this.table) ? "descricao" : "nome").startAt(string).endAt(string + '\uf8ff')
-                .limit(50).where(this.table == "ofertas" ? "empresa.uid" : "empresa_uid", "==", this.storage.getStorage("empresa")[0].uid)).snapshotChanges().pipe(take(1), map(actions => {
-                    return actions.map(action => {
-                        const data = action.payload.doc.data();
-                        const uid = action.payload.doc.id;
-                        return { uid, ...data };
-                    });
-                })).subscribe(data => {
-                    this.setListData(data, action);
-                    this.loadingTable = false;
-                })
-        } else {
-            this.firestore.collection<any>(this.table, ref => ref.orderBy(["conteudos", "ofertas"].includes(this.table) ? "descricao" : this.table == "usuarios" ? "displayName" : "nome").startAt(string).endAt(string + '\uf8ff').limit(50))
-                .snapshotChanges().pipe(take(1), map(actions => {
-                    return actions.map(action => {
-                        const data = action.payload.doc.data();
-                        const uid = action.payload.doc.id;
-                        return { uid, ...data };
-                    });
-                })).subscribe(data => {
-                    this.setListData(data, action);
-                    this.loadingTable = false;
-                })
-        }
+        this.firestore.collection<any>(this.table, ref => ref.orderBy("nome").startAt(string).endAt(string + '\uf8ff').limit(50))
+            .get().pipe(take(1), map(actions => {
+                return actions.docs.map(action => {
+                    const data = action.data();
+                    const uid = action.id;
+                    return { uid, ...data };
+                });
+            })).subscribe(data => {
+                this.setListData(data, action);
+                this.loadingTable = false;
+            })
     }
 
     /** @description Faz a atualização da tabela */
@@ -136,20 +131,20 @@ export class InheritanceComponent implements OnInit {
 
     /** @description Navega para ação selecionada */
     executeAction(action: IActions, row?: any) {
+        let queryParams: any = { option: 1 };
+
         if (row) {
-            action.routerLink[1].outlets.cadastro[2] = row.uid;
+            queryParams = { uid: row.uid, option: action.action };
+            row.visible = false;
         }
 
-        if (row)
-            row.visible = false;
-
-        this.router.navigate(action.routerLink)
+        this.router.navigate(action.routerLink, { queryParams })
     }
 
     /** @description Seta a Data de bloqueio caso desative o campo */
     setDataBloqueio(lineSelected: any) {
         if (!lineSelected.status) {
-            lineSelected.data_bloqueio = new Date();
+            lineSelected.data_bloqueio = new Date().toLocaleString();
         } else {
             lineSelected.data_bloqueio = null;
         }

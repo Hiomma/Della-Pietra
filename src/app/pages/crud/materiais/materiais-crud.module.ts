@@ -1,23 +1,25 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { EmpresaCrudRoutingModule } from './materiais-crud-routing.module';
-import { EmpresaCrudService } from './materiais-crud.service';
+import { NgModule } from '@angular/core';
 import { ComponentsModule } from 'src/app/components/components.module';
-import { EmpresaCrudComponent } from './materiais-crud.component';
+import { MateriaisCrudRoutingModule } from './materiais-crud-routing.module';
+import { MateriaisCrudComponent } from './materiais-crud.component';
+import { MateriaisListaComponent } from './materiais-lista.component';
+import { MateriaisCrudService } from './materiais-crud.service';
+
 
 
 @NgModule({
     declarations: [
-        EmpresaCrudComponent
+        MateriaisCrudComponent,
+        MateriaisListaComponent,
     ],
     imports: [
-        EmpresaCrudRoutingModule,
+        MateriaisCrudRoutingModule,
         CommonModule,
         ComponentsModule
     ],
     providers: [
-        EmpresaCrudService
+        MateriaisCrudService
     ]
 })
-export class EmpresaCrudModule { }
+export class MateriaisCrudModule { }

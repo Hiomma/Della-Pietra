@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { IActions, IMenu } from '../misc/interfaces/menu.interface';
-import { StorageService } from './storage.service';
 
 @Injectable({
     providedIn: 'root'
@@ -10,25 +9,17 @@ export class MenuService {
 
     private _listMenu: Array<IMenu>;
 
-    constructor(private storage: StorageService) {
+    constructor() {
         this._listMenu = [
-            { name: 'Carreiras', icon: "experiment", routerLink: ["carreiras"], actions: this.createActions("carreiras"), isEmpresa: false },
-            { name: 'Concursos', icon: "profile", routerLink: ["concursos"], actions: this.createActions("concursos"), isEmpresa: false },
-            { name: 'Conteúdos Programáticos', icon: "schedule", routerLink: ["conteudos"], actions: this.createActions("conteudos"), isEmpresa: true },
-            { name: 'Empresas', icon: "bank", routerLink: ["empresas"], actions: this.createActions("empresas"), isEmpresa: false },
-            { name: 'Ofertas', icon: "tags", routerLink: ["ofertas"], actions: this.createActions("ofertas"), isEmpresa: true },
-            { name: 'Professores', icon: "usergroup-add", routerLink: ["professores"], actions: this.createActions("professores"), isEmpresa: true },
-            { name: 'Usuários', icon: "form", routerLink: ["usuarios"], actions: this.createActions("usuarios"), isEmpresa: false },
+            { name: 'Materiais', icon: "experiment", routerLink: ["materiais"], actions: this.createActions("materiais") },
+            { name: 'Contato', icon: "experiment", routerLink: ["contato"], actions: this.createActions("contato") },
+            { name: 'Mensagens', icon: "experiment", routerLink: ["mensagens"], actions: this.createActions("mensagens") },
         ];
 
     }
 
     get listMenu() {
-        if (this.storage.getStorage("empresa")) {
-            return this._listMenu.filter(element => element.isEmpresa == true);
-        } else {
-            return this._listMenu;
-        }
+        return this._listMenu;
     }
 
     /**
@@ -37,9 +28,9 @@ export class MenuService {
      */
     createActions(nomeRota: string): Array<IActions> {
         let array: Array<IActions> = [
-            { name: 'Adicionar', routerLink: [nomeRota, { outlets: { cadastro: [nomeRota, 1, ''] } }], },
-            { name: 'Alterar', routerLink: [nomeRota, { outlets: { cadastro: [nomeRota, 2, ''] } }], },
-            { name: 'Excluir', routerLink: [nomeRota, { outlets: { cadastro: [nomeRota, 3, ''] } }], },
+            { name: 'Adicionar', routerLink: [`/crud/${nomeRota}/${nomeRota}`], action: 1 },
+            { name: 'Alterar', routerLink: [`/crud/${nomeRota}/${nomeRota}`], action: 2 },
+            { name: 'Excluir', routerLink: [`/crud/${nomeRota}/${nomeRota}`], action: 3 },
         ];
 
         return array;
