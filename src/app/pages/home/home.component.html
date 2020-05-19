@@ -1,5 +1,5 @@
 <janela-site>
-    <div style="position: relative;">
+    <div style="position: relative;" [style.height.px]="alturaCarousel" [style.width.px]="width">
         <nz-carousel nzAutoPlay style="height: 100%;" #carousel [nzAutoPlaySpeed]="5000">
             <div nz-carousel-content *ngFor="let image of listCarousel">
                 <img class="imgHome" [style.height.px]="alturaCarousel" [style.width.px]="width" [src]="image">
