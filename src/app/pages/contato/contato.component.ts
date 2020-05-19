@@ -5,6 +5,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { ComumService } from 'src/app/services/comum.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { NzMessageService } from 'ng-zorro-antd';
 
 @Component({
     selector: 'app-contato',
@@ -33,7 +35,9 @@ export class ContatoComponent implements OnInit {
     constructor(private api: ApiService,
         private formBuilder: FormBuilder,
         private comum: ComumService,
-        private fireStorage: AngularFireStorage) { }
+        private firestore: AngularFirestore,
+        private message: NzMessageService
+    ) { }
 
     ngOnInit(): void {
         this.comum.changeLanguage$.pipe(takeUntil(this.unsub)).subscribe((language: boolean) => {
@@ -44,6 +48,16 @@ export class ContatoComponent implements OnInit {
             this.contatos = contato[0];
         }).catch(error => {
             console.error(error);
+        })
+    }
+
+    enviarMensagem() {
+        this.firestore.collection<any>("mensagens").add(this.resourceForm.getRawValue()).then((data: any) => {
+            this.message.create("success", "A mensagem foi enviada com sucesso!");
+            this.resourceForm.reset();
+        }).catch(err => {
+            this.message.create("error", "Houve um erro ao enviar a mensagem. Tente novamente!");
+            console.error(err);
         })
     }
 }

@@ -1,6 +1,5 @@
 import { Component, Injector } from '@angular/core';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { EnumOption } from 'src/app/misc/enums/comum.enum';
 import { InheritanceActionComponent } from 'src/app/misc/inheritance/inheritance-action.component';
 import { ApiService } from 'src/app/services/api.service';
 import { MensagensCrudService } from './mensagens-crud.service';

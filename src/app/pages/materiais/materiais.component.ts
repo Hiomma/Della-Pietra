@@ -15,9 +15,12 @@ import { VisualizarMaterialComponent } from './visualizar-material/visualizar-ma
 export class MateriaisComponent implements OnInit {
 
     listMateriais: Array<any> = [];
+    auxListMateriais: Array<any> = [];
 
     private unsub = new Subject();
     isPortuguese = true;
+
+    filtro = "T";
 
     width = self.innerWidth;
 
@@ -37,8 +40,10 @@ export class MateriaisComponent implements OnInit {
                 ref.getDownloadURL().subscribe((data) => {
                     element.url = data
                     this.listMateriais.push(element);
+                    this.auxListMateriais.push(element);
                 })
             })
+
         }).catch(error => {
             console.error(error);
         })
@@ -63,4 +68,17 @@ export class MateriaisComponent implements OnInit {
         });
     }
 
+    mudarMateriais(filtroSelecionado: string) {
+        switch (filtroSelecionado) {
+            case "T":
+                this.listMateriais = this.auxListMateriais.concat([]);
+                break;
+            case "B":
+                this.listMateriais = this.auxListMateriais.filter(element => element.tipo == "B")
+                break;
+            case "E":
+                this.listMateriais = this.auxListMateriais.filter(element => element.tipo == "E")
+                break;
+        }
+    }
 }

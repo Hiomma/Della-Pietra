@@ -19,6 +19,16 @@
 
     <div class="divConteudo">
         <div *ngIf="width > 700; else carousel">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <h3>Filtros</h3>
+
+                <nz-radio-group [(ngModel)]="filtro" (ngModelChange)="mudarMateriais($event)">
+                    <label nz-radio-button nzValue="T">Todos</label>
+                    <label nz-radio-button nzValue="E">Exóticos</label>
+                    <label nz-radio-button nzValue="B">Básicos</label>
+                </nz-radio-group>
+            </div>
+
             <div nz-row [nzGutter]="[16, 16]">
                 <div nz-col [nzSpan]="6" *ngFor="let material of listMateriais" (mouseover)="material.hover = true"
                     (mouseleave)="material.hover = false">
