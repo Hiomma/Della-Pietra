@@ -67,8 +67,11 @@
     <nz-footer>
         <div class="footer">
             <div nz-col [nzSpan]="width > 700 ? 8 : 12" class="divFooter">
-                <i nz-icon nzType="facebook" nzTheme="outline" style="margin-right: 20px;"></i>
-                <i nz-icon nzType="instagram" nzTheme="outline"></i>
+                <!-- <i nz-icon nzType="facebook" nzTheme="outline" style="margin-right: 20px;"></i> -->
+                <a href="https://www.instagram.com/della_pietra/" target="_blank"><i nz-icon nzType="instagram"
+                        nzTheme="outline"></i></a>
+                <span class="spanTelefone">+55 28 99951-7007</span>
+
             </div>
 
             <div nz-col nzSpan="8" class="divFooter criador" *ngIf="width > 700">
@@ -79,7 +82,6 @@
 
             <div nz-col [nzSpan]="width > 700 ? 8 : 12" class="divFooter">
                 <div>
-                    <p class="pTelefone">+55 28 99951-7007</p>
                     <p class="pNomeEmpresa">DELLA PIETRA</p>
                 </div>
             </div>

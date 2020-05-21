@@ -34,16 +34,16 @@ export class MateriaisComponent implements OnInit {
             this.isPortuguese = language;
         })
 
-        this.api.getAll("materiais").then((listMateriais: Array<any>) => {
-            listMateriais.forEach(element => {
+        this.api.getAll("materiais").then(async (listMateriais: Array<any>) => {
+            for (let element of listMateriais) {
                 const ref = this.fireStorage.ref(element.caminho);
-                ref.getDownloadURL().subscribe((data) => {
+                await ref.getDownloadURL().toPromise().then((data) => {
                     element.url = data
-                    this.listMateriais.push(element);
                     this.auxListMateriais.push(element);
                 })
-            })
+            }
 
+            this.mudarMateriais("T");
         }).catch(error => {
             console.error(error);
         })
@@ -71,13 +71,19 @@ export class MateriaisComponent implements OnInit {
     mudarMateriais(filtroSelecionado: string) {
         switch (filtroSelecionado) {
             case "T":
-                this.listMateriais = this.auxListMateriais.concat([]);
+                this.listMateriais = this.auxListMateriais.concat([]).sort((a, b) => {
+                    return a.codigo < b.codigo ? -1 : a.codigo > b.codigo ? 1 : 0;
+                });
                 break;
             case "B":
-                this.listMateriais = this.auxListMateriais.filter(element => element.tipo == "B")
+                this.listMateriais = this.auxListMateriais.filter(element => element.tipo == "B").sort((a, b) => {
+                    return a.codigo < b.codigo ? -1 : a.codigo > b.codigo ? 1 : 0;
+                })
                 break;
             case "E":
-                this.listMateriais = this.auxListMateriais.filter(element => element.tipo == "E")
+                this.listMateriais = this.auxListMateriais.filter(element => element.tipo == "E").sort((a, b) => {
+                    return a.codigo < b.codigo ? -1 : a.codigo > b.codigo ? 1 : 0;
+                })
                 break;
         }
     }
