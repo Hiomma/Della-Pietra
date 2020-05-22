@@ -38,13 +38,13 @@ export class HomeComponent implements OnInit {
     private carregarImagens() {
         this.listCarousel = [];
 
-        this.api.getAll("carousel").then((carousel: Array<any>) => {
-            carousel[0].carousel.forEach(element => {
+        this.api.getAll("carousel").then(async (carousel: Array<any>) => {
+            for (let element of carousel[0].carousel.sort((a, b) => { return a < b ? -1 : a > b ? 1 : 0; })) {
                 const ref = this.fireStorage.ref(element);
-                ref.getDownloadURL().subscribe((data) => {
+                await ref.getDownloadURL().toPromise().then((data) => {
                     this.listCarousel.push(data);
                 })
-            })
+            }
         }).catch(error => {
             console.error(error);
         })
