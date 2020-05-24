@@ -3,7 +3,8 @@
         <nz-carousel nzAutoPlay style="height: 100%;" #carousel [nzAutoPlaySpeed]="5000">
             <div nz-carousel-content *ngFor="let image of listCarousel; let i = index">
                 <img class="imgHome" [style.height.px]="alturaCarousel" [style.width.px]="width" [src]="image"
-                    [ngStyle]="i == 1 ? { 'object-position': 'left'} : { 'object-position': 'center'} ">
+                    [ngStyle]="i == 1 ? { 'object-position': 'left'} : { 'object-position': 'center'} "
+                    (contextmenu)="cancelarCopia($event)" (dragstart)="cancelarCopia($event)">
             </div>
         </nz-carousel>
 

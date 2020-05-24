@@ -66,4 +66,13 @@ export class HomeComponent implements OnInit {
         this.carousel.next();
     }
 
+    /**
+    * @description Cancelar a copia das imagens
+    * @param {MouseEvent} event
+    */
+    cancelarCopia(event: MouseEvent) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
 }

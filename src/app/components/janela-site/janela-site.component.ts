@@ -20,8 +20,6 @@ export class JanelaSiteComponent implements OnInit, OnDestroy {
         { name: "CONTATO", englishName: "CONTACT", routerLink: ["/contato"] },
     ]
 
-    year = new Date().getFullYear();
-
     private unsub = new Subject();
     isPortuguese = true;
 
