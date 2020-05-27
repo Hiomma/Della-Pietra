@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit {
         this.listCarousel = [];
 
         this.api.getAll("carousel").then(async (carousel: Array<any>) => {
-            for (let element of carousel[0].carousel.sort((a, b) => { return a < b ? -1 : a > b ? 1 : 0; })) {
+            for (let element of carousel[0][this.isPortuguese ? "carousel" : "carouselIngles"].sort((a, b) => { return a < b ? -1 : a > b ? 1 : 0; })) {
                 const ref = this.fireStorage.ref(element);
                 await ref.getDownloadURL().toPromise().then((data) => {
                     this.listCarousel.push(data);

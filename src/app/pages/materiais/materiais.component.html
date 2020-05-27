@@ -46,7 +46,7 @@
 
         <ng-template #carousel>
             <div>
-                Veja a nossa galeria de materiais que nós produzimos com total qualidade!
+                {{isPortuguese ? 'Veja a nossa galeria de materiais que nós produzimos com total qualidade!' : 'See our gallery of materials that we produce with total quality!'}}
             </div>
 
             <nz-carousel [nzAutoPlaySpeed]="5000" nzAutoPlay class="carouselMaterial">
