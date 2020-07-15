@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
 import { StorageService } from './services/storage.service';
 import { ComumService } from './services/comum.service';
+import { ApiService } from './services/api.service';
 
 @Component({
     selector: 'app-root',
@@ -19,10 +20,16 @@ export class AppComponent implements OnInit {
         private router: Router,
         private storage: StorageService,
         private comum: ComumService,
+        private api: ApiService,
         private auth: AuthService) {
     }
 
-    ngOnInit() {
+    async ngOnInit() {
+        if (!this.storage.getStorage("ultimaVisita") || this.storage.getStorage("ultimaVisita") != new Date().toLocaleDateString()) {
+            this.storage.setStorage("ultimaVisita", new Date().toLocaleDateString())
+            let visita = await this.api.getVisita()
+            await this.api.updateVisita(++visita.visitas)
+        }
     }
 
     get listMenu() {

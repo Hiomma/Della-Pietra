@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
+import { map, take, first } from 'rxjs/operators';
 import { StorageService } from './storage.service';
 
 @Injectable({
@@ -28,6 +28,14 @@ export class ApiService {
                 reject(error)
             })
         })
+    }
+
+    updateVisita(visits: number) {
+        return this.firestore.collection("visitas").doc("5YdDsmMfSJbvcsXLfAUh").update({ visitas: visits })
+    }
+
+    getVisita() {
+        return this.firestore.collection("visitas").doc("5YdDsmMfSJbvcsXLfAUh").get().pipe(first(), map((action: any) => { return { ...action.data() } })).toPromise()
     }
 }
 

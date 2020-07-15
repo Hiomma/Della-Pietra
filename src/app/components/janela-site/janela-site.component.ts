@@ -4,6 +4,7 @@ import { ComumService } from 'src/app/services/comum.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
     selector: 'janela-site',
@@ -27,14 +28,19 @@ export class JanelaSiteComponent implements OnInit, OnDestroy {
 
     isCollapsed = false;
 
+    visitas = 0
+
     constructor(private router: Router,
         private storage: StorageService,
+        private api: ApiService,
         private comum: ComumService) { }
 
-    ngOnInit(): void {
+    async ngOnInit() {
         this.comum.changeLanguage$.pipe(takeUntil(this.unsub)).subscribe((language: boolean) => {
             this.isPortuguese = language;
         })
+
+        this.visitas = (await this.api.getVisita()).visitas
     }
 
     mudarPagina(pagina: string) {

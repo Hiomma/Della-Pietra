@@ -53,6 +53,10 @@ export class HomeComponent implements OnInit {
     get alturaCarousel() {
         if (this.width < 700) {
             return this.height - 144
+        } else if ((this.height - 262) < 513 && this.width > 1400) {
+            return 513
+        } else if ((this.height - 262) < 380 && this.width > 1000) {
+            return 380
         } else {
             return this.height - 262
         }

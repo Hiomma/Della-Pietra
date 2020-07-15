@@ -75,10 +75,14 @@
 
             </div>
 
-            <div nz-col nzSpan="8" class="divFooter criador" *ngIf="width > 700">
+            <div nz-col nzSpan="4" class="divFooter criador" *ngIf="width > 700">
                 {{isPortuguese ? 'Desenvolvido por' : 'Developed by'}} <a
                     href="https://www.instagram.com/gabrielsereno.js/" target="_blank">Gabriel Sereno</a>
                 ©
+            </div>
+
+            <div nz-col nzSpan="4" class="divFooter criador">
+                Número de visitas: {{visitas }}
             </div>
 
             <div nz-col [nzSpan]="width > 700 ? 8 : 12" class="divFooter">
