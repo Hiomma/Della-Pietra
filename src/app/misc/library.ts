@@ -1,5 +1,4 @@
 import { FormControl } from '@angular/forms';
-import * as moment from 'moment';
 
 let numberFormat = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
@@ -25,7 +24,7 @@ export function getMaxLength(control: FormControl) {
 
 /**
  * @description Função para verificiar se um objeto tem código
- * @param objeto Objeto para ser comparado. Será verificado se esse objeto tem o campo código 
+ * @param objeto Objeto para ser comparado. Será verificado se esse objeto tem o campo código
  * @returns True caso o objeto ter código. False caso não tenha.
  */
 export function temCodigo(objeto: any): boolean {
@@ -218,51 +217,6 @@ export function transformaTempo(tempo: string) {
 }
 
 /**
- * @description Função que pega dois tempos e retorna a diferença
- * @param dataInicio Campo Date, é a data inicio
- * @param dataFim Campo Date, é a data fim
- * @return Retornará o tempo em "00:00:00"
- */
-export function diferencaHorario(dataInicio: Date, dataFim: Date) {
-    let inicio = moment(dataInicio);
-    let fim = moment(dataFim);
-
-    let diferenca = moment.duration(fim.diff(inicio));
-    let horas = diferenca.hours() < 10 ? "0" + diferenca.hours() : diferenca.hours();
-    let minutos = diferenca.minutes() < 10 ? "0" + diferenca.minutes() : diferenca.minutes();
-    let segundos = diferenca.seconds() < 10 ? "0" + diferenca.seconds() : diferenca.seconds();
-
-    return horas + ":" + minutos + ":" + segundos;
-}
-
-//Calcula a diferença de segundos e retorna em number
-export function diferencaSegundos(dataInicio: Date, dataFim: Date) {
-    let inicio = moment(dataInicio);
-    let fim = moment(dataFim);
-
-    let diferenca = moment.duration(fim.diff(inicio));
-
-    return diferenca.seconds();
-}
-
-/**
- * @description Retorna a diferença de duas datas em milisegundos
- * @export
- * @param {Date} dataInicio
- * @param {Date} dataFim
- * @returns
- */
-export function diferencaMilissegundos(dataInicio: Date, dataFim: Date) {
-    let inicio = moment(dataInicio);
-    let fim = moment(dataFim);
-
-    let diferenca = moment.duration(fim.diff(inicio));
-
-    return diferenca.milliseconds();
-}
-
-
-/**
  * @description Função para converter uma string para a sua mask
  * @export
  * @param {string} value Valor da String
@@ -280,22 +234,6 @@ export function toMask(value: string, mask: string): string {
     }
 
     return retorno;
-}
-
-
-/**
- * @description Função que pega dois dias e retorna a diferença
- * @param dataInicio Campo Date, é a data inicio
- * @param dataFim Campo Date, é a data fim
- * @return //Calcula a diferença de dias e retorna em number
- */
-export function diferencaDias(dataInicio: Date, dataFim: Date) {
-    let inicio = moment(dataInicio);
-    let fim = moment(dataFim);
-
-    let diferenca = moment.duration(fim.diff(inicio));
-
-    return Math.round(diferenca.asDays());
 }
 
 /**
@@ -333,7 +271,7 @@ export function validacaoEmail(field) {
 
 /**
  * @description Função serve para transformar caracteres especiais em URI para que a requisição GET seja efetuada com sucesso.
- *  @param palavra palavra que será transformada em URI.  
+ *  @param palavra palavra que será transformada em URI.
  */
 export function trocarCaracterEspecial(palavra: string) { return palavra ? encodeURIComponent(palavra) : "" }
 
